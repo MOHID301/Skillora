@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Profile — Skillora</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================
+           EDIT PROFILE PAGE
+        ========================================= */
+
+        .edit-profile-page {
+            min-height: calc(100vh - 78px);
+            padding: 80px 20px;
+        }
+
+        .edit-profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .edit-profile-header {
+            margin-bottom: 35px;
+        }
+
+        .edit-profile-header .eyebrow {
+            margin-bottom: 10px;
+        }
+
+        .edit-profile-header h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 38px;
+            letter-spacing: -1.5px;
+        }
+
+        .edit-profile-header p {
+            margin-top: 10px;
+            color: var(--text-soft);
+        }
+
+
+        /* =========================================
+           FORM CARD
+        ========================================= */
+
+        .edit-profile-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            padding: 13px 15px;
+
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            color: var(--text);
+            font-size: 15px;
+            font-family: inherit;
+
+            outline: none;
+            transition: .2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group input:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .form-hint {
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .form-message {
+            display: none;
+
+            padding: 12px 15px;
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-message.error {
+            display: block;
+
+            background: rgba(255, 80, 80, .1);
+            border: 1px solid rgba(255, 80, 80, .25);
+            color: #ff6b6b;
+        }
+
+        .form-message.success {
+            display: block;
+
+            background: rgba(215, 255, 79, .1);
+            border: 1px solid rgba(215, 255, 79, .25);
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           ACTIONS
+        ========================================= */
+
+        .edit-profile-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+
+            margin-top: 10px;
+        }
+
+        .cancel-btn {
+            padding: 12px 20px;
+
+            background: transparent;
+            color: var(--text);
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            font-weight: 700;
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .cancel-btn:hover {
+            background: var(--bg-soft);
+        }
+
+        .save-profile-btn {
+            padding: 12px 20px;
+
+            background: var(--accent);
+            color: #101300;
+
+            border: none;
+            border-radius: 9px;
+
+            font-weight: 700;
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .save-profile-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .save-profile-btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .edit-profile-page {
+                padding: 55px 16px;
+            }
+
+            .edit-profile-header h1 {
+                font-size: 30px;
+            }
+
+            .edit-profile-card {
+                padding: 24px 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="/HTML/index.html" class="logo">
+                Skill<span>ora</span>
+            </a>
+
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="/HTML/services.html">Services</a>
+                <a href="/HTML/products.html">Products</a>
+                <a href="/HTML/articles.html">Articles</a>
+                <a href="/HTML/about.html">About</a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+
+                
+                    <href="/HTML/login.html"
+                    class="login-btn"
+                >
+                    Log in
+                </a>
+
+
+                
+                    <href="/HTML/signup.html"
+                    class="signup-btn"
+                >
+                    Join Skillora
+                </a>
+
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         EDIT PROFILE
+    ========================================= -->
+
+    <main class="edit-profile-page">
+
+        <div class="edit-profile-container">
+
+            <div class="edit-profile-header">
+
+                <span class="eyebrow">
+                    ACCOUNT
+                </span>
+
+                <h1>
+                    Edit Profile
+                </h1>
+
+                <p>
+                    Update your account information.
+                </p>
+
+            </div>
+
+
+            <div class="edit-profile-card">
+
+                <div
+                    id="formMessage"
+                    class="form-message"
+                >
+                </div>
+
+
+                <form id="editProfileForm">
+
+                    <div class="form-group">
+
+                        <label for="fullNameInput">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullNameInput"
+                            placeholder="Your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="usernameInput">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="usernameInput"
+                            placeholder="your_username"
+                            required
+                        >
+
+                        <div class="form-hint">
+                            Only letters, numbers and underscores. No spaces.
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="emailInput">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="emailInput"
+                            disabled
+                        >
+
+                        <div class="form-hint">
+                            Email cannot be changed here.
+                        </div>
+
+                    </div>
+
+
+                    <div class="edit-profile-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelBtn"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="save-profile-btn"
+                            id="saveBtn"
+                        >
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="/SCRIPTS/supabase.js"></script>
+
+    <script src="/SCRIPTS/auth.js"></script>
+
+    <script src="/SCRIPTS/edit-profile.js"></script>
+
+</body>
+
+</html>

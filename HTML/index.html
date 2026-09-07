@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skillora — Freelance Marketplace</title>
+   
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="home-page">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="#" class="logo">
+                Skill<span>ora</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="/HTML/services.html">Services</a>
+                <a href="/HTML/products.html">Products</a>
+                <a href="/HTML/articles.html">Articles</a>
+                <a href="/HTML/about.html">About</a>
+            </nav>
+
+            <div class="nav-actions">
+
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <span id="themeIcon">☀</span>
+    </button>
+<a href="/HTML/login.html" class="login-btn">
+    Log in
+</a>
+
+<a href="/HTML/signup.html" class="signup-btn">
+    Join Skillora
+</a>
+
+<div class="user-menu" id="userMenu">
+
+    <button class="user-btn" id="userBtn">
+        Welcome, <span id="navUsername">User</span>
+        <span class="user-arrow">⌄</span>
+    </button>
+
+    <div class="user-dropdown" id="userDropdown">
+
+        <div class="user-dropdown-header">
+            <strong id="dropdownUsername">User</strong>
+            <span id="dropdownEmail">email@example.com</span>
+        </div>
+
+        <div class="user-dropdown-links">
+
+            <a href="/HTML/profile.html">
+                Profile
+            </a>
+
+            <a href="/HTML/my-services.html">
+                My Services
+            </a>
+
+            <a href="/HTML/my-orders.html">
+                My Orders
+            </a>
+
+            <a href="/HTML/settings.html">
+                Settings
+            </a>
+
+        </div>
+
+        <button class="logout-btn" id="logoutBtn">
+            Log out
+        </button>
+
+    </div>
+
+</div>
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+</div>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        The marketplace for modern skills
+                    </div>
+
+                    <h1>
+                        Find the right
+                        <span>skills.</span>
+                        Get things done.
+                    </h1>
+
+                    <p>
+                        Discover talented freelancers, unique products,
+                        useful services and ideas — all in one place.
+                    </p>
+
+                    <div class="search-box">
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search for services, products or articles..."
+                        >
+
+                        <button id="searchBtn">
+                            Search
+                        </button>
+
+                    </div>
+
+                    <div class="popular-searches">
+                        <span>Popular:</span>
+                        <button>Web Development</button>
+                        <button>Logo Design</button>
+                        <button>SEO</button>
+                        <button>Video Editing</button>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card">
+
+                    <div class="floating-card card-one">
+                        <div class="avatar">AK</div>
+                        <div>
+                            <strong>Ahmed Khan</strong>
+                            <small>Web Developer</small>
+                        </div>
+                        <span class="rating">★ 4.9</span>
+                    </div>
+
+                    <div class="hero-main-card">
+
+                        <div class="card-top">
+                            <span class="category-label">FEATURED SERVICE</span>
+                            <span class="verified">✓</span>
+                        </div>
+
+                        <h3>
+                            I will build a modern
+                            responsive website
+                        </h3>
+
+                        <div class="service-preview">
+                            <div class="preview-box">
+                                <span>&lt;/&gt;</span>
+                            </div>
+                            <div class="preview-lines">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+                        </div>
+
+                        <div class="service-bottom">
+                            <span>Starting at</span>
+                            <strong>$50</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-card card-two">
+                        <span class="mini-icon">✦</span>
+                        <div>
+                            <strong>2,400+</strong>
+                            <small>Active freelancers</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section class="categories section" id="categories">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">EXPLORE</span>
+                        <h2>What are you looking for?</h2>
+                    </div>
+
+                    <a href="/HTML/products.html" class="view-link">
+                        View all →
+                    </a>
+                </div>
+
+
+                <div class="category-grid">
+
+                    <a href="#" class="category-card">
+                        <div class="category-icon">⌘</div>
+                        <h3>Programming</h3>
+                        <p>1,240 services</p>
+                    </a>
+
+                    <a href="#" class="category-card">
+                        <div class="category-icon">✦</div>
+                        <h3>Design</h3>
+                        <p>980 services</p>
+                    </a>
+
+                    <a href="#" class="category-card">
+                        <div class="category-icon">◉</div>
+                        <h3>Digital Marketing</h3>
+                        <p>760 services</p>
+                    </a>
+
+                    <a href="#" class="category-card">
+                        <div class="category-icon">Aa</div>
+                        <h3>Writing</h3>
+                        <p>620 services</p>
+                    </a>
+
+                    <a href="#" class="category-card">
+                        <div class="category-icon">▶</div>
+                        <h3>Video & Animation</h3>
+                        <p>540 services</p>
+                    </a>
+
+                    <a href="#" class="category-card">
+                        <div class="category-icon">♫</div>
+                        <h3>Music & Audio</h3>
+                        <p>380 services</p>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <section class="services section" id="services">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">SERVICES</span>
+                        <h2>Popular services</h2>
+                    </div>
+
+                    <a href="/HTML/services.html" class="view-link">
+                        Explore services →
+                    </a>
+
+                </div>
+
+
+                <div class="service-grid">
+
+                    <article class="service-card">
+
+                        <div class="service-image image-web">
+                            <span>WEB</span>
+                        </div>
+
+                        <div class="service-info">
+
+                            <div class="seller">
+                                <div class="small-avatar">MA</div>
+
+                                <div>
+                                    <strong>Muhammad Ali</strong>
+                                    <span>Web Developer</span>
+                                </div>
+                            </div>
+
+                            <h3>
+                                I will create a professional
+                                responsive website
+                            </h3>
+
+                            <div class="service-meta">
+                                <span>★ 4.9</span>
+                                <span>(126)</span>
+                            </div>
+
+                            <div class="price">
+                                <small>Starting at</small>
+                                <strong>$80</strong>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-image image-design">
+                            <span>BRAND</span>
+                        </div>
+
+                        <div class="service-info">
+
+                            <div class="seller">
+                                <div class="small-avatar">SA</div>
+
+                                <div>
+                                    <strong>Sarah Ahmed</strong>
+                                    <span>Graphic Designer</span>
+                                </div>
+                            </div>
+
+                            <h3>
+                                I will design a unique
+                                modern logo for your brand
+                            </h3>
+
+                            <div class="service-meta">
+                                <span>★ 5.0</span>
+                                <span>(94)</span>
+                            </div>
+
+                            <div class="price">
+                                <small>Starting at</small>
+                                <strong>$35</strong>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-image image-seo">
+                            <span>SEO</span>
+                        </div>
+
+                        <div class="service-info">
+
+                            <div class="seller">
+                                <div class="small-avatar">HR</div>
+
+                                <div>
+                                    <strong>Hassan Raza</strong>
+                                    <span>SEO Specialist</span>
+                                </div>
+                            </div>
+
+                            <h3>
+                                I will optimize your website
+                                for Google SEO
+                            </h3>
+
+                            <div class="service-meta">
+                                <span>★ 4.8</span>
+                                <span>(72)</span>
+                            </div>
+
+                            <div class="price">
+                                <small>Starting at</small>
+                                <strong>$45</strong>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-image image-video">
+                            <span>VIDEO</span>
+                        </div>
+
+                        <div class="service-info">
+
+                            <div class="seller">
+                                <div class="small-avatar">ZN</div>
+
+                                <div>
+                                    <strong>Zainab Noor</strong>
+                                    <span>Video Editor</span>
+                                </div>
+                            </div>
+
+                            <h3>
+                                I will edit professional
+                                social media videos
+                            </h3>
+
+                            <div class="service-meta">
+                                <span>★ 4.9</span>
+                                <span>(51)</span>
+                            </div>
+
+                            <div class="price">
+                                <small>Starting at</small>
+                                <strong>$25</strong>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <section class="products section" id="products">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">MARKETPLACE</span>
+                        <h2>Featured products</h2>
+                    </div>
+
+                    <a href="/HTML/products.html" class="view-link">
+                        View marketplace →
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            <span class="product-tag">NEW</span>
+                            <div class="product-placeholder">DEVICE</div>
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                Electronics
+                            </span>
+
+                            <h3>
+                                Wireless Mechanical Keyboard
+                            </h3>
+
+                            <div class="product-bottom">
+                                <strong>$49</strong>
+                                <span>★ 4.8</span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image product-design">
+                            <div class="product-placeholder">DESIGN</div>
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                Digital Product
+                            </span>
+
+                            <h3>
+                                Premium UI Design Kit
+                            </h3>
+
+                            <div class="product-bottom">
+                                <strong>$19</strong>
+                                <span>★ 5.0</span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image product-course">
+                            <div class="product-placeholder">COURSE</div>
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                Education
+                            </span>
+
+                            <h3>
+                                Complete Python Course
+                            </h3>
+
+                            <div class="product-bottom">
+                                <strong>$29</strong>
+                                <span>★ 4.9</span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ARTICLES ================= -->
+
+        <section class="articles section" id="articles">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">INSIGHTS</span>
+                        <h2>Latest articles</h2>
+                    </div>
+
+                    <a href="/HTML/articles.html" class="view-link">
+                        Read all articles →
+                    </a>
+
+                </div>
+
+
+                <div class="article-grid">
+
+                    <article class="article-card">
+
+                        <div class="article-image">
+                            FREELANCING
+                        </div>
+
+                        <div class="article-content">
+
+                            <span>Freelancing · 5 min read</span>
+
+                            <h3>
+                                How to start freelancing
+                                as a developer in 2026
+                            </h3>
+
+                            <p>
+                                A practical guide for beginners
+                                looking to build their first freelance career.
+                            </p>
+
+                            <a href="#">
+                                Read article →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="article-card">
+
+                        <div class="article-image article-tech">
+                            TECHNOLOGY
+                        </div>
+
+                        <div class="article-content">
+
+                            <span>Technology · 4 min read</span>
+
+                            <h3>
+                                The skills companies are
+                                looking for right now
+                            </h3>
+
+                            <p>
+                                Explore the technologies and skills
+                                shaping the modern digital workplace.
+                            </p>
+
+                            <a href="#">
+                                Read article →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="article-card">
+
+                        <div class="article-image article-business">
+                            BUSINESS
+                        </div>
+
+                        <div class="article-content">
+
+                            <span>Business · 6 min read</span>
+
+                            <h3>
+                                How to build a strong
+                                freelance portfolio
+                            </h3>
+
+                            <p>
+                                Learn how to present your work
+                                and attract better clients.
+                            </p>
+
+                            <a href="#">
+                                Read article →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta">
+
+            <div class="container cta-content">
+
+                <div>
+                    <span class="eyebrow">START TODAY</span>
+
+                    <h2>
+                        Have a skill?
+                        <br>
+                        Turn it into an opportunity.
+                    </h2>
+
+                    <p>
+                        Join freelancers and creators already
+                        building their businesses on Skillora.
+                    </p>
+                </div>
+
+                <button class="cta-btn">
+                    Start selling →
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="#" class="logo">
+                    Skill<span>ora</span>
+                </a>
+
+                <p>
+                    A modern marketplace connecting
+                    people, skills and opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Marketplace</h4>
+
+                <a href="#">Services</a>
+                <a href="#">Products</a>
+                <a href="#">Categories</a>
+                <a href="#">Featured</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Resources</h4>
+
+                <a href="#">Articles</a>
+                <a href="#">Help Center</a>
+                <a href="#">Community</a>
+                <a href="#">Become a Seller</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Company</h4>
+
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <span>
+                © 2026 Skillora. All rights reserved.
+            </span>
+
+              <span style="color: tan;">
+                A Project of Mohid & Co.
+            </span>
+
+            <span>
+                Built for creators & freelancers.
+            </span>
+
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="/SCRIPTS/supabase.js"></script>
+
+<script src="/SCRIPTS/auth.js"></script>
+    <script src="/SCRIPTS/script.js"></script>
+
+</body>
+</html>

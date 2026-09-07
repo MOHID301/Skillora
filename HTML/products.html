@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skillora — Products</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- =====================================================
+         PRODUCTS PAGE STYLES
+    ====================================================== -->
+    <style>
+
+        /* =====================================================
+           PRODUCTS HERO
+        ====================================================== */
+
+        .products-hero {
+            min-height: 650px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background:
+                radial-gradient(
+                    circle at 85% 45%,
+                    rgba(215,255,79,.09),
+                    transparent 32%
+                );
+        }
+
+        .products-hero::before {
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            right: -180px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(
+                circle,
+                rgba(215,255,79,.13),
+                rgba(215,255,79,.035) 35%,
+                transparent 70%
+            );
+            filter: blur(8px);
+            pointer-events: none;
+        }
+
+        .products-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(var(--container), calc(100% - 40px));
+            margin: auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(380px, .95fr);
+            align-items: center;
+            gap: 80px;
+            padding: 75px 0;
+        }
+
+        .products-hero-text {
+            max-width: 680px;
+        }
+
+        .products-hero-badge {
+                display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-soft);
+    font-size: 12px;
+    margin-bottom: 25px;
+        }
+
+        .products-hero-badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(215,255,79,.65);
+        }
+
+        .products-hero h1 {
+            margin: 0;
+            max-width: 700px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(52px, 6.2vw, 82px);
+            line-height: .96;
+            letter-spacing: -4.5px;
+            font-weight: 700;
+        }
+
+        .products-hero h1 span {
+            color: var(--accent);
+        }
+
+        .products-hero-text > p {
+            max-width: 600px;
+            margin: 28px 0 32px;
+            color: var(--text-soft);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           PRODUCT SEARCH
+        ====================================================== */
+
+        .product-search-box {
+            width: min(650px, 100%);
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+            padding: 6px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 18px 45px rgba(0,0,0,.18);
+            transition: .25s ease;
+        }
+
+        .product-search-box:focus-within {
+            border-color: rgba(215,255,79,.45);
+            box-shadow:
+                0 18px 45px rgba(0,0,0,.2),
+                0 0 0 3px rgba(215,255,79,.045);
+        }
+
+        .product-search-box input {
+            flex: 1;
+            min-width: 0;
+            height: 50px;
+            padding: 0 17px;
+            border: 0;
+            outline: none;
+            background: transparent;
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+        }
+
+        .product-search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .product-search-box button {
+            height: 50px;
+            padding: 0 24px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--accent);
+            color: #101300;
+            font-family: "DM Sans", sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .product-search-box button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           POPULAR PRODUCT FILTERS
+        ====================================================== */
+
+        .products-hero .product-filters {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-top: 17px;
+        }
+
+        .products-hero .product-filters > span {
+            margin-right: 4px;
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .products-hero .product-filters button {
+            padding: 7px 11px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: transparent;
+            color: var(--text-soft);
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .products-hero .product-filters button:hover {
+            border-color: rgba(215,255,79,.35);
+            color: var(--accent);
+            background: rgba(215,255,79,.035);
+        }
+
+
+        /* =====================================================
+           HERO PRODUCT DISPLAY
+        ====================================================== */
+
+        .products-visual {
+            min-height: 490px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .products-visual::before {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            border: 1px solid rgba(215,255,79,.08);
+            border-radius: 50%;
+        }
+
+        .products-visual::after {
+            content: "";
+            position: absolute;
+            width: 310px;
+            height: 310px;
+            border: 1px dashed rgba(215,255,79,.07);
+            border-radius: 50%;
+        }
+
+        .product-showcase {
+            position: relative;
+            z-index: 5;
+            width: min(410px, 90%);
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow:
+                0 35px 80px rgba(0,0,0,.35),
+                0 0 70px rgba(215,255,79,.045);
+            transform: rotate(-2deg);
+            transition: .35s ease;
+        }
+
+        .product-showcase:hover {
+            transform: rotate(0deg) translateY(-7px);
+        }
+
+        .product-showcase-top {
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 17px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255,255,255,.018);
+        }
+
+        .product-showcase-label {
+            color: var(--accent);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+        }
+
+        .product-showcase-icon {
+            width: 29px;
+            height: 29px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-soft);
+            font-size: 13px;
+        }
+
+        .product-showcase-image {
+            height: 230px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    135deg,
+                    #252b30,
+                    #11151a
+                );
+        }
+
+        .product-showcase-image::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(215,255,79,.2),
+                    transparent 68%
+                );
+        }
+
+        .product-showcase-image::after {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 80px;
+            border: 1px solid rgba(255,255,255,.08);
+            transform: rotate(-25deg);
+            border-radius: 50%;
+        }
+
+        .product-showcase-placeholder {
+            position: relative;
+            z-index: 2;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #6d757d;
+        }
+
+        .product-showcase-info {
+            padding: 21px;
+        }
+
+        .product-showcase-category {
+            color: var(--text-muted);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+        }
+
+        .product-showcase-info h2 {
+            margin: 7px 0 8px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 21px;
+            line-height: 1.2;
+        }
+
+        .product-showcase-info p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .product-showcase-rating {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 14px;
+            color: var(--text-soft);
+            font-size: 11px;
+        }
+
+        .product-showcase-rating strong {
+            color: var(--accent);
+        }
+
+
+        /* =====================================================
+           FLOATING HERO CARDS
+        ====================================================== */
+
+        .product-floating-card {
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 20px 45px rgba(0,0,0,.25);
+            animation: productFloat 5s ease-in-out infinite;
+        }
+
+        .product-floating-card span {
+            width: 31px;
+            height: 31px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            background: rgba(215,255,79,.08);
+            color: var(--accent);
+            font-size: 13px;
+        }
+
+        .product-floating-card strong {
+            display: block;
+            color: var(--text);
+            font-size: 12px;
+        }
+
+        .product-floating-card small {
+            display: block;
+            margin-top: 2px;
+            color: var(--text-muted);
+            font-size: 9px;
+        }
+
+        .product-floating-one {
+            top: 58px;
+            right: 0;
+        }
+
+        .product-floating-two {
+            left: 0;
+            bottom: 58px;
+            animation-delay: -2.2s;
+        }
+
+        @keyframes productFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+
+        /* =====================================================
+           PRODUCT CATEGORIES
+        ====================================================== */
+
+        .product-categories {
+            background: var(--bg);
+        }
+
+        .product-category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .product-category-card {
+            min-height: 155px;
+            position: relative;
+            padding: 22px;
+            text-align: left;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card);
+            color: var(--text);
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .product-category-card::after {
+            content: "";
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            right: -35px;
+            bottom: -35px;
+            border-radius: 50%;
+            background: rgba(215,255,79,.045);
+            transition: .25s ease;
+        }
+
+        .product-category-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(215,255,79,.25);
+        }
+
+        .product-category-card:hover::after,
+        .product-category-card.active::after {
+            background: rgba(215,255,79,.1);
+        }
+
+        .product-category-card.active {
+            border-color: rgba(215,255,79,.5);
+            box-shadow: 0 0 0 1px rgba(215,255,79,.06);
+        }
+
+        .category-big-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 22px;
+            border-radius: 10px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .product-category-card strong {
+            display: block;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 15px;
+        }
+
+        .product-category-card small {
+            display: block;
+            margin-top: 5px;
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           PRODUCT MARKETPLACE
+        ====================================================== */
+
+        .products-marketplace {
+            background: var(--bg-soft);
+        }
+
+        .products-marketplace .section-heading {
+            align-items: center;
+        }
+
+        .products-marketplace .section-heading > div {
+            min-width: 0;
+        }
+
+        .product-sort {
+            min-width: 175px;
+            height: 43px;
+            padding: 0 12px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            outline: none;
+            background: var(--card);
+            color: var(--text-soft);
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .product-sort:focus {
+            border-color: rgba(215,255,79,.35);
+        }
+
+        .product-sort option {
+            background: var(--card);
+            color: var(--text);
+        }
+
+
+        /* =====================================================
+           PRODUCT GRID
+        ====================================================== */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .product-card {
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: .25s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(215,255,79,.2);
+            box-shadow: 0 20px 45px rgba(0,0,0,.16);
+        }
+
+        .product-image {
+            height: 250px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: linear-gradient(
+                135deg,
+                #252b31,
+                #11161b
+            );
+        }
+
+        .product-image::before {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 50%;
+        }
+
+        .product-image::after {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 1px solid rgba(215,255,79,.09);
+            border-radius: 50%;
+        }
+
+        .product-design {
+            background: linear-gradient(
+                135deg,
+                #312c25,
+                #171514
+            );
+        }
+
+        .product-course {
+            background: linear-gradient(
+                135deg,
+                #252d29,
+                #111614
+            );
+        }
+
+        .product-template {
+            background: linear-gradient(
+                135deg,
+                #252936,
+                #111419
+            );
+        }
+
+        .product-marketing {
+            background: linear-gradient(
+                135deg,
+                #2b2923,
+                #151512
+            );
+        }
+
+        .product-social {
+            background: linear-gradient(
+                135deg,
+                #29252d,
+                #141216
+            );
+        }
+
+        .product-placeholder {
+            position: relative;
+            z-index: 2;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 29px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #727981;
+        }
+
+        .product-tag {
+            position: absolute;
+            z-index: 3;
+            top: 14px;
+            left: 14px;
+            padding: 6px 8px;
+            background: var(--accent);
+            color: #101300;
+            border-radius: 5px;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+
+        .product-favorite {
+            position: absolute;
+            z-index: 3;
+            top: 13px;
+            right: 13px;
+            width: 32px;
+            height: 32px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 8px;
+            background: rgba(0,0,0,.2);
+            color: var(--text-soft);
+            font-size: 13px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--text-muted);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .product-info h3 {
+            margin: 7px 0 9px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            min-height: 40px;
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .product-seller {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+        .product-seller-avatar {
+            width: 27px;
+            height: 27px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .product-price {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .product-rating {
+            color: var(--accent);
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           NO PRODUCTS
+        ====================================================== */
+
+        .no-products {
+            margin-top: 25px;
+            padding: 55px 20px;
+            text-align: center;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            background: var(--card);
+        }
+
+        .no-products h3 {
+            margin: 0 0 8px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 20px;
+        }
+
+        .no-products p {
+            margin: 0 0 20px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .no-products button {
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #101300;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           CTA
+        ====================================================== */
+
+        .products-page-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .products-page-cta::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            left: -200px;
+            top: -200px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(215,255,79,.07),
+                transparent 70%
+            );
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           ACTIVE NAVIGATION
+        ====================================================== */
+
+        .nav-links a.active {
+            color: var(--text);
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -9px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+
+        /* =====================================================
+           LIGHT MODE
+        ====================================================== */
+
+        body.light-mode .products-hero {
+            background:
+                radial-gradient(
+                    circle at 85% 45%,
+                    rgba(130,160,40,.08),
+                    transparent 32%
+                );
+        }
+
+        body.light-mode .products-hero::before {
+            opacity: .55;
+        }
+
+        body.light-mode .product-showcase,
+        body.light-mode .product-floating-card,
+        body.light-mode .product-card,
+        body.light-mode .product-category-card,
+        body.light-mode .product-search-box,
+        body.light-mode .product-sort,
+        body.light-mode .no-products {
+            box-shadow: 0 15px 35px rgba(0,0,0,.06);
+        }
+
+        body.light-mode .product-showcase-image,
+        body.light-mode .product-image {
+            filter: saturate(.85);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — TABLET
+        ====================================================== */
+
+        @media (max-width: 1050px) {
+
+            .products-hero-content {
+                grid-template-columns: 1fr;
+                gap: 45px;
+                padding: 70px 0;
+            }
+
+            .products-hero-text {
+                max-width: 760px;
+            }
+
+            .products-visual {
+                min-height: 470px;
+            }
+
+            .product-category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — MOBILE
+        ====================================================== */
+
+        @media (max-width: 760px) {
+
+            .products-hero {
+                min-height: auto;
+            }
+
+            .products-hero-content {
+                width: calc(100% - 28px);
+                gap: 25px;
+                padding: 65px 0 55px;
+            }
+
+            .products-hero h1 {
+                font-size: clamp(43px, 13vw, 62px);
+                letter-spacing: -3px;
+            }
+
+            .products-hero-text > p {
+                margin: 22px 0 25px;
+                font-size: 14px;
+            }
+
+            .product-search-box {
+                min-height: 56px;
+            }
+
+            .product-search-box input {
+                height: 44px;
+                padding: 0 12px;
+                font-size: 13px;
+            }
+
+            .product-search-box button {
+                height: 44px;
+                padding: 0 17px;
+            }
+
+            .products-hero .product-filters {
+                gap: 6px;
+            }
+
+            .products-hero .product-filters button {
+                padding: 6px 9px;
+                font-size: 9px;
+            }
+
+            .products-visual {
+                min-height: 410px;
+            }
+
+            .products-visual::before {
+                width: 340px;
+                height: 340px;
+            }
+
+            .products-visual::after {
+                width: 245px;
+                height: 245px;
+            }
+
+            .product-showcase {
+                width: min(360px, 88%);
+            }
+
+            .product-showcase-image {
+                height: 195px;
+            }
+
+            .product-floating-one {
+                top: 25px;
+                right: 0;
+            }
+
+            .product-floating-two {
+                left: 0;
+                bottom: 25px;
+            }
+
+            .product-floating-card {
+                padding: 9px 11px;
+            }
+
+            .product-floating-card span {
+                width: 27px;
+                height: 27px;
+            }
+
+            .product-floating-card strong {
+                font-size: 10px;
+            }
+
+            .product-floating-card small {
+                font-size: 8px;
+            }
+
+            .product-category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .product-category-card {
+                min-height: 140px;
+                padding: 17px;
+            }
+
+            .category-big-icon {
+                width: 39px;
+                height: 39px;
+                margin-bottom: 17px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 260px;
+            }
+
+            .products-marketplace .section-heading {
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .product-sort {
+                width: 100%;
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — SMALL MOBILE
+        ====================================================== */
+
+        @media (max-width: 500px) {
+
+            .products-hero-content {
+                padding-top: 50px;
+            }
+
+            .products-hero-badge {
+                margin-bottom: 19px;
+                font-size: 9px;
+            }
+
+            .products-hero h1 {
+                font-size: 43px;
+                line-height: .98;
+            }
+
+            .products-hero-text > p {
+                font-size: 13px;
+                line-height: 1.6;
+            }
+
+            .product-search-box {
+                display: flex;
+                padding: 5px;
+            }
+
+            .product-search-box button {
+                padding: 0 14px;
+                font-size: 11px;
+            }
+
+            .products-hero .product-filters > span {
+                width: 100%;
+                margin-bottom: 1px;
+            }
+
+            .products-visual {
+                min-height: 370px;
+            }
+
+            .products-visual::before {
+                width: 280px;
+                height: 280px;
+            }
+
+            .products-visual::after {
+                width: 205px;
+                height: 205px;
+            }
+
+            .product-showcase {
+                width: 86%;
+                border-radius: 17px;
+            }
+
+            .product-showcase-image {
+                height: 165px;
+            }
+
+            .product-showcase-placeholder {
+                font-size: 25px;
+            }
+
+            .product-showcase-info {
+                padding: 16px;
+            }
+
+            .product-showcase-info h2 {
+                font-size: 18px;
+            }
+
+            .product-showcase-info p {
+                font-size: 10px;
+            }
+
+            .product-floating-one {
+                right: -4px;
+                top: 13px;
+            }
+
+            .product-floating-two {
+                left: -4px;
+                bottom: 13px;
+            }
+
+            .product-floating-card {
+                max-width: 145px;
+            }
+
+            .product-category-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product-category-card {
+                min-height: 125px;
+                padding: 14px;
+            }
+
+            .category-big-icon {
+                margin-bottom: 13px;
+            }
+
+            .product-category-card strong {
+                font-size: 12px;
+            }
+
+            .product-category-card small {
+                font-size: 9px;
+            }
+
+            .product-image {
+                height: 230px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .product-floating-card {
+                animation: none;
+            }
+
+            .product-card,
+            .product-showcase,
+            .product-category-card,
+            .product-search-box button {
+                transition: none;
+            }
+
+        }
+
+    </style>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                Skill<span>ora</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="products.html" class="active">
+                    Products
+                </a>
+
+                <a href="articles.html">
+                    Articles
+                </a>
+
+                <a href="/HTML/about.html">
+                    About
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                    aria-label="Toggle theme"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+                <button class="login-btn">
+                    Log in
+                </button>
+
+                <button class="signup-btn">
+                    Join Skillora
+                </button>
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PRODUCTS HERO
+    ====================================================== -->
+
+    <section class="products-hero">
+
+        <div class="products-hero-content">
+
+            <!-- LEFT -->
+            <div class="products-hero-text">
+
+                <div class="products-hero-badge">
+                    Discover useful products
+                </div>
+
+                <h1>
+                    Find products
+                    <span>worth buying.</span>
+                </h1>
+
+                <p>
+                    Explore digital products, tools, templates,
+                    courses and useful resources created by
+                    talented people.
+                </p>
+
+
+                <!-- SEARCH -->
+
+                <div class="product-search-box">
+
+                    <input
+                        type="text"
+                        id="productSearch"
+                        placeholder="Search products..."
+                        autocomplete="off"
+                    >
+
+                    <button id="productSearchBtn">
+                        Search
+                    </button>
+
+                </div>
+
+
+                <!-- POPULAR -->
+
+                <div class="product-filters">
+
+                    <span>Popular:</span>
+
+                    <button data-category="All">
+                        All
+                    </button>
+
+                    <button data-category="Digital Products">
+                        Digital Products
+                    </button>
+
+                    <button data-category="Courses">
+                        Courses
+                    </button>
+
+                    <button data-category="Templates">
+                        Templates
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT VISUAL -->
+
+            <div class="products-visual">
+
+                <!-- FLOATING CARD -->
+
+                <div class="product-floating-card product-floating-one">
+
+                    <span>★</span>
+
+                    <div>
+                        <strong>4.9 / 5</strong>
+                        <small>Customer rating</small>
+                    </div>
+
+                </div>
+
+
+                <!-- MAIN PRODUCT -->
+
+                <div class="product-showcase">
+
+                    <div class="product-showcase-top">
+
+                        <span class="product-showcase-label">
+                            FEATURED PRODUCT
+                        </span>
+
+                        <span class="product-showcase-icon">
+                            ✦
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-showcase-image">
+
+                        <span class="product-showcase-placeholder">
+                            UI KIT
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-showcase-info">
+
+                        <span class="product-showcase-category">
+                            DIGITAL PRODUCT
+                        </span>
+
+                        <h2>
+                            Premium UI Design Kit
+                        </h2>
+
+                        <p>
+                            A complete collection of modern
+                            interface components for designers
+                            and developers.
+                        </p>
+
+                        <div class="product-showcase-rating">
+                            <strong>★ 4.9</strong>
+                            <span>124 buyers</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FLOATING CARD -->
+
+                <div class="product-floating-card product-floating-two">
+
+                    <span>↗</span>
+
+                    <div>
+                        <strong>2,800+</strong>
+                        <small>Products available</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRODUCT CATEGORIES
+    ====================================================== -->
+
+    <section class="product-categories section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        BROWSE
+                    </span>
+
+                    <h2>
+                        Shop by category
+                    </h2>
+
+                </div>
+
+                <span
+                    class="product-count"
+                    id="productCount"
+                >
+                    6 products
+                </span>
+
+            </div>
+
+
+            <div class="product-category-grid">
+
+                <button
+                    class="product-category-card active"
+                    data-category="All"
+                >
+
+                    <span class="category-big-icon">
+                        ✦
+                    </span>
+
+                    <strong>
+                        All Products
+                    </strong>
+
+                    <small>
+                        Everything
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="product-category-card"
+                    data-category="Digital Products"
+                >
+
+                    <span class="category-big-icon">
+                        ◈
+                    </span>
+
+                    <strong>
+                        Digital Products
+                    </strong>
+
+                    <small>
+                        Files & resources
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="product-category-card"
+                    data-category="Courses"
+                >
+
+                    <span class="category-big-icon">
+                        ▶
+                    </span>
+
+                    <strong>
+                        Courses
+                    </strong>
+
+                    <small>
+                        Learn new skills
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="product-category-card"
+                    data-category="Templates"
+                >
+
+                    <span class="category-big-icon">
+                        ▦
+                    </span>
+
+                    <strong>
+                        Templates
+                    </strong>
+
+                    <small>
+                        Ready to use
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRODUCT MARKETPLACE
+    ====================================================== -->
+
+    <section
+        class="products products-marketplace section"
+        id="products"
+    >
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MARKETPLACE
+                    </span>
+
+                    <h2>
+                        Explore products
+                    </h2>
+
+                </div>
+
+
+                <select
+                    id="sortProducts"
+                    class="product-sort"
+                    aria-label="Sort products"
+                >
+
+                    <option value="default">
+                        Sort by
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                    <option value="rating">
+                        Highest Rated
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PRODUCT GRID -->
+
+            <div
+                class="product-grid"
+                id="productGrid"
+            >
+
+
+                <!-- PRODUCT 1 -->
+
+                <article
+                    class="product-card"
+                    data-category="Digital Products"
+                    data-price="49"
+                    data-rating="4.8"
+                >
+
+                    <div class="product-image">
+
+                        <span class="product-tag">
+                            NEW
+                        </span>
+
+                        <span class="product-favorite">
+                            ♡
+                        </span>
+
+                        <span class="product-placeholder">
+                            DEVICE
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            DIGITAL PRODUCTS
+                        </span>
+
+                        <h3>
+                            Wireless Mechanical Keyboard
+                        </h3>
+
+                        <p class="product-description">
+                            A premium productivity setup designed
+                            for modern creators.
+                        </p>
+
+
+                        <div class="product-seller">
+
+                            <span class="product-seller-avatar">
+                                MA
+                            </span>
+
+                            <span>
+                                Muhammad Ali
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <strong class="product-price">
+                                $49
+                            </strong>
+
+                            <span class="product-rating">
+                                ★ 4.8
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PRODUCT 2 -->
+
+                <article
+                    class="product-card"
+                    data-category="Digital Products"
+                    data-price="19"
+                    data-rating="5.0"
+                >
+
+                    <div class="product-image product-design">
+
+                        <span class="product-favorite">
+                            ♡
+                        </span>
+
+                        <span class="product-placeholder">
+                            DESIGN
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            DIGITAL PRODUCTS
+                        </span>
+
+                        <h3>
+                            Premium UI Design Kit
+                        </h3>
+
+                        <p class="product-description">
+                            Modern UI components and layouts for
+                            web and mobile projects.
+                        </p>
+
+
+                        <div class="product-seller">
+
+                            <span class="product-seller-avatar">
+                                SA
+                            </span>
+
+                            <span>
+                                Sarah Ahmed
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <strong class="product-price">
+                                $19
+                            </strong>
+
+                            <span class="product-rating">
+                                ★ 5.0
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PRODUCT 3 -->
+
+                <article
+                    class="product-card"
+                    data-category="Courses"
+                    data-price="29"
+                    data-rating="4.9"
+                >
+
+                    <div class="product-image product-course">
+
+                        <span class="product-favorite">
+                            ♡
+                        </span>
+
+                        <span class="product-placeholder">
+                            COURSE
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            COURSES
+                        </span>
+
+                        <h3>
+                            Complete Python Course
+                        </h3>
+
+                        <p class="product-description">
+                            Learn Python from fundamentals to
+                            practical development.
+                        </p>
+
+
+                        <div class="product-seller">
+
+                            <span class="product-seller-avatar">
+                                HR
+                            </span>
+
+                            <span>
+                                Hassan Raza
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <strong class="product-price">
+                                $29
+                            </strong>
+
+                            <span class="product-rating">
+                                ★ 4.9
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PRODUCT 4 -->
+
+                <article
+                    class="product-card"
+                    data-category="Templates"
+                    data-price="15"
+                    data-rating="4.7"
+                >
+
+                    <div class="product-image product-template">
+
+                        <span class="product-favorite">
+                            ♡
+                        </span>
+
+                        <span class="product-placeholder">
+                            WEB
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            TEMPLATES
+                        </span>
+
+                        <h3>
+                            Modern Portfolio Template
+                        </h3>
+
+                        <p class="product-description">
+                            A clean portfolio template for
+                            developers and designers.
+                        </p>
+
+
+                        <div class="product-seller">
+
+                            <span class="product-seller-avatar">
+                                ZN
+                            </span>
+
+                            <span>
+                                Zainab Noor
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <strong class="product-price">
+                                $15
+                            </strong>
+
+                            <span class="product-rating">
+                                ★ 4.7
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PRODUCT 5 -->
+
+                <article
+                    class="product-card"
+                    data-category="Courses"
+                    data-price="35"
+                    data-rating="4.8"
+                >
+
+                    <div class="product-image product-marketing">
+
+                        <span class="product-favorite">
+                            ♡
+                        </span>
+
+                        <span class="product-placeholder">
+                            SEO
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            COURSES
+                        </span>
+
+                        <h3>
+                            SEO Masterclass
+                        </h3>
+
+                        <p class="product-description">
+                            Learn practical SEO strategies for
+                            modern websites.
+                        </p>
+
+
+                        <div class="product-seller">
+
+                            <span class="product-seller-avatar">
+                                AR
+                            </span>
+
+                            <span>
+                                Ahmed Raza
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <strong class="product-price">
+                                $35
+                            </strong>
+
+                            <span class="product-rating">
+                                ★ 4.8
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PRODUCT 6 -->
+
+                <article
+                    class="product-card"
+                    data-category="Templates"
+                    data-price="12"
+                    data-rating="4.9"
+                >
+
+                    <div class="product-image product-social">
+
+                        <span class="product-favorite">
+                            ♡
+                        </span>
+
+                        <span class="product-placeholder">
+                            SOCIAL
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            TEMPLATES
+                        </span>
+
+                        <h3>
+                            Social Media Content Pack
+                        </h3>
+
+                        <p class="product-description">
+                            Ready-made social media designs for
+                            creators and businesses.
+                        </p>
+
+
+                        <div class="product-seller">
+
+                            <span class="product-seller-avatar">
+                                FM
+                            </span>
+
+                            <span>
+                                Fatima Malik
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <strong class="product-price">
+                                $12
+                            </strong>
+
+                            <span class="product-rating">
+                                ★ 4.9
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- NO PRODUCTS -->
+
+            <div
+                class="no-products"
+                id="noProducts"
+                style="display:none;"
+            >
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+                <button id="resetProducts">
+                    Show all products
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SELLER CTA
+    ====================================================== -->
+
+    <section class="cta products-page-cta">
+
+        <div class="container cta-content">
+
+            <div>
+
+                <span class="eyebrow">
+                    HAVE SOMETHING TO SELL?
+                </span>
+
+                <h2>
+                    Turn your product<br>
+                    into an opportunity.
+                </h2>
+
+                <p>
+                    Share your digital products, courses and
+                    resources with the Skillora community.
+                </p>
+
+            </div>
+
+
+            <button
+                class="cta-btn"
+                id="sellProductBtn"
+            >
+                Start selling →
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    Skill<span>ora</span>
+                </a>
+
+                <p>
+                    A modern marketplace connecting people,
+                    skills and opportunities.
+                </p>
+
+            </div>
+
+
+            <!-- MARKETPLACE -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Marketplace
+                </h4>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="/HTML/about.html">
+                    About
+                </a>
+
+                <a href="#">
+                    Featured
+                </a>
+
+            </div>
+
+
+            <!-- RESOURCES -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="articles.html">
+                    Articles
+                </a>
+
+                <a href="#">
+                    Help Center
+                </a>
+
+                <a href="#">
+                    Community
+                </a>
+
+                <a href="#">
+                    Become a Seller
+                </a>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <span>
+                © 2026 Skillora. All rights reserved.
+            </span>
+
+            <span>
+                A Project of Mohid & Co.
+            </span>
+
+            <span>
+                Built for creators & freelancers.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         PRODUCTS JAVASCRIPT
+    ====================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="/SCRIPTS/supabase.js"></script>
+
+<script src="/SCRIPTS/auth.js"></script>
+    <script src="/SCRIPTS/products.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skillora — Articles</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- =====================================================
+         ARTICLES PAGE STYLES
+    ====================================================== -->
+    <style>
+
+        /* =====================================================
+           ARTICLES HERO
+        ====================================================== */
+
+
+        .articles-hero {
+             padding: 0px 0 0 ;
+             overflow: hidden;
+            border-bottom: 0.5px solid var(--border);
+            position: relative;
+            min-height: 650px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background:
+                radial-gradient(
+                    circle at 15% 35%,
+                    rgba(215,255,79,.055),
+                    transparent 30%
+                );
+        }
+
+        .articles-hero::before {
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            right: -190px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid rgba(215,255,79,.07);
+            border-radius: 50%;
+        }
+
+        .articles-hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            right: -110px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px dashed rgba(215,255,79,.07);
+            border-radius: 50%;
+        }
+
+        .articles-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(var(--container), calc(100% - 40px));
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr .9fr;
+            align-items: center;
+            gap: 80px;
+            padding: 75px 0;
+        }
+
+        .articles-hero-text {
+            max-width: 650px;
+        }
+
+        .articles-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 12px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(215,255,79,.22);
+            border-radius: 100px;
+            font-size: 12px;
+            margin-bottom: 25px;
+            
+        }
+
+      .articles-hero-badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(215, 255, 79, .65);
+}
+      
+
+        .articles-hero h1 {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(52px, 6.2vw, 80px);
+            line-height: .97;
+            letter-spacing: -4.5px;
+        }
+
+        .articles-hero h1 span {
+            color: var(--accent);
+        }
+
+        .articles-hero-text > p {
+            max-width: 590px;
+            margin: 27px 0 31px;
+            color: var(--text-soft);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           ARTICLE SEARCH
+        ====================================================== */
+
+        .article-search-box {
+            width: min(620px, 100%);
+            min-height: 61px;
+            display: flex;
+            align-items: center;
+            padding: 6px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card);
+            box-shadow: 0 18px 45px rgba(0,0,0,.18);
+            transition: .25s ease;
+        }
+
+        .article-search-box:focus-within {
+            border-color: rgba(215,255,79,.4);
+            box-shadow:
+                0 18px 45px rgba(0,0,0,.2),
+                0 0 0 3px rgba(215,255,79,.04);
+        }
+
+        .article-search-box input {
+            flex: 1;
+            min-width: 0;
+            height: 49px;
+            padding: 0 16px;
+            border: 0;
+            outline: none;
+            background: transparent;
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            font-size: 13px;
+        }
+
+        .article-search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .article-search-box button {
+            height: 49px;
+            padding: 0 23px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--accent);
+            color: #101300;
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .article-search-box button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           POPULAR TOPICS
+        ====================================================== */
+
+        .article-popular {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 17px;
+        }
+
+        .article-popular > span {
+            margin-right: 4px;
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+        .article-popular button {
+            padding: 7px 11px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: transparent;
+            color: var(--text-soft);
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .article-popular button:hover {
+            color: var(--accent);
+            border-color: rgba(215,255,79,.3);
+            background: rgba(215,255,79,.035);
+        }
+
+
+        /* =====================================================
+           FEATURED ARTICLE VISUAL
+        ====================================================== */
+
+        .articles-hero-visual {
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-article {
+            position: relative;
+            z-index: 5;
+            width: min(430px, 90%);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--card);
+            box-shadow:
+                0 35px 80px rgba(0,0,0,.35),
+                0 0 70px rgba(215,255,79,.035);
+            transform: rotate(2deg);
+            transition: .35s ease;
+        }
+
+        .featured-article:hover {
+            transform: rotate(0deg) translateY(-7px);
+        }
+
+        .featured-article-image {
+            height: 245px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    135deg,
+                    #262d32,
+                    #11161b
+                );
+        }
+
+        .featured-article-image::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(215,255,79,.1);
+            border-radius: 50%;
+        }
+
+        .featured-article-image::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(215,255,79,.17),
+                transparent 70%
+            );
+        }
+
+        .featured-article-label {
+            position: absolute;
+            z-index: 4;
+            top: 15px;
+            left: 15px;
+            padding: 6px 8px;
+            border-radius: 5px;
+            background: var(--accent);
+            color: #101300;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: .7px;
+        }
+
+        .featured-article-visual-text {
+            position: relative;
+            z-index: 3;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 27px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #737b82;
+        }
+
+        .featured-article-content {
+            padding: 22px;
+        }
+
+        .featured-article-category {
+            color: var(--accent);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+        }
+
+        .featured-article-content h2 {
+            margin: 8px 0 10px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 22px;
+            line-height: 1.2;
+        }
+
+        .featured-article-content p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 11px;
+            line-height: 1.65;
+        }
+
+        .featured-article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 18px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .featured-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-author-avatar {
+            width: 29px;
+            height: 29px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+            font-size: 8px;
+            font-weight: 700;
+        }
+
+        .featured-author strong {
+            display: block;
+            font-size: 10px;
+        }
+
+        .featured-author small {
+            color: var(--text-muted);
+            font-size: 8px;
+        }
+
+        .featured-reading {
+            color: var(--text-muted);
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           FLOATING ARTICLE CARDS
+        ====================================================== */
+
+        .article-floating {
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card);
+            box-shadow: 0 20px 45px rgba(0,0,0,.25);
+            animation: articleFloat 5s ease-in-out infinite;
+        }
+
+        .article-floating-icon {
+            width: 31px;
+            height: 31px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            background: rgba(215,255,79,.07);
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        .article-floating strong {
+            display: block;
+            font-size: 11px;
+        }
+
+        .article-floating small {
+            display: block;
+            margin-top: 2px;
+            color: var(--text-muted);
+            font-size: 8px;
+        }
+
+        .article-floating-one {
+            top: 48px;
+            right: -3px;
+        }
+
+        .article-floating-two {
+            bottom: 48px;
+            left: -4px;
+            animation-delay: -2.3s;
+        }
+
+        @keyframes articleFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+
+        }
+
+
+        /* =====================================================
+           ARTICLE TOPICS
+        ====================================================== */
+
+        .article-topics {
+            background: var(--bg);
+        }
+
+        .article-topic-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 13px;
+        }
+
+        .article-topic-card {
+            min-height: 125px;
+            position: relative;
+            overflow: hidden;
+            padding: 18px;
+            text-align: left;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card);
+            color: var(--text);
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .article-topic-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(215,255,79,.25);
+        }
+
+        .article-topic-card.active {
+            border-color: rgba(215,255,79,.48);
+            box-shadow: 0 0 0 1px rgba(215,255,79,.05);
+        }
+
+        .article-topic-card::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            right: -30px;
+            bottom: -30px;
+            border-radius: 50%;
+            background: rgba(215,255,79,.04);
+            transition: .25s ease;
+        }
+
+        .article-topic-card.active::after,
+        .article-topic-card:hover::after {
+            background: rgba(215,255,79,.1);
+        }
+
+        .article-topic-icon {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: var(--bg-soft);
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .article-topic-card strong {
+            display: block;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 12px;
+        }
+
+        .article-topic-card small {
+            display: block;
+            margin-top: 4px;
+            color: var(--text-muted);
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           ARTICLE MARKETPLACE
+        ====================================================== */
+
+        .articles-marketplace {
+            background: var(--bg-soft);
+        }
+
+        .articles-marketplace .section-heading {
+            align-items: center;
+        }
+
+        .article-count {
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .article-card {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card);
+            transition: .25s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(215,255,79,.2);
+            box-shadow: 0 20px 45px rgba(0,0,0,.17);
+        }
+
+        .article-image {
+            height: 205px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    135deg,
+                    #252b31,
+                    #11161b
+                );
+        }
+
+        .article-image::before {
+            content: "";
+            position: absolute;
+            width: 165px;
+            height: 165px;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 50%;
+        }
+
+        .article-image::after {
+            content: "";
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border: 1px solid rgba(215,255,79,.09);
+            border-radius: 50%;
+        }
+
+        .article-tech {
+            background:
+                linear-gradient(
+                    135deg,
+                    #242b32,
+                    #10151a
+                );
+        }
+
+        .article-business {
+            background:
+                linear-gradient(
+                    135deg,
+                    #302d28,
+                    #171513
+                );
+        }
+
+        .article-design {
+            background:
+                linear-gradient(
+                    135deg,
+                    #2b2932,
+                    #151319
+                );
+        }
+
+        .article-freelance {
+            background:
+                linear-gradient(
+                    135deg,
+                    #292d29,
+                    #131714
+                );
+        }
+
+        .article-seo {
+            background:
+                linear-gradient(
+                    135deg,
+                    #302b24,
+                    #161411
+                );
+        }
+
+        .article-career {
+            background:
+                linear-gradient(
+                    135deg,
+                    #272b31,
+                    #13161a
+                );
+        }
+
+        .article-image-text {
+            position: relative;
+            z-index: 2;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #707880;
+        }
+
+        .article-tag {
+            position: absolute;
+            z-index: 4;
+            top: 13px;
+            left: 13px;
+            padding: 5px 8px;
+            border-radius: 5px;
+            background: var(--accent);
+            color: #101300;
+            font-size: 8px;
+            font-weight: 800;
+        }
+
+        .article-content {
+            padding: 19px;
+        }
+
+        .article-category {
+            color: var(--text-muted);
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .article-content h3 {
+            margin: 7px 0 9px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+            line-height: 1.3;
+        }
+
+        .article-description {
+            min-height: 40px;
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 17px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .article-author-avatar {
+            width: 27px;
+            height: 27px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+            font-size: 8px;
+            font-weight: 700;
+        }
+
+        .article-author-name {
+            color: var(--text-soft);
+            font-size: 9px;
+        }
+
+        .article-reading-time {
+            color: var(--text-muted);
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           NO RESULTS
+        ====================================================== */
+
+        .no-articles {
+            margin-top: 25px;
+            padding: 55px 20px;
+            text-align: center;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            background: var(--card);
+        }
+
+        .no-articles h3 {
+            margin: 0 0 8px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 20px;
+        }
+
+        .no-articles p {
+            margin: 0 0 20px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .no-articles button {
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #101300;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           CTA
+        ====================================================== */
+
+        .articles-page-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .articles-page-cta::before {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            right: -220px;
+            bottom: -230px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(215,255,79,.07),
+                transparent 70%
+            );
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           ACTIVE NAV
+        ====================================================== */
+
+        .nav-links a.active {
+            position: relative;
+            color: var(--text);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -9px;
+            height: 2px;
+            border-radius: 5px;
+            background: var(--accent);
+        }
+
+
+        /* =====================================================
+           LIGHT MODE
+        ====================================================== */
+
+        body.light-mode .articles-hero {
+            background:
+                radial-gradient(
+                    circle at 15% 35%,
+                    rgba(130,160,40,.055),
+                    transparent 30%
+                );
+        }
+
+        body.light-mode .featured-article,
+        body.light-mode .article-floating,
+        body.light-mode .article-card,
+        body.light-mode .article-topic-card,
+        body.light-mode .article-search-box,
+        body.light-mode .no-articles {
+            box-shadow: 0 15px 35px rgba(0,0,0,.06);
+        }
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (max-width: 1050px) {
+
+            .articles-hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 70px 0;
+            }
+
+            .articles-hero-text {
+                max-width: 760px;
+            }
+
+            .articles-hero-visual {
+                min-height: 470px;
+            }
+
+            .article-topic-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 760px) {
+
+            .articles-hero {
+                min-height: auto;
+            }
+
+            .articles-hero-content {
+                width: calc(100% - 28px);
+                gap: 25px;
+                padding: 65px 0 55px;
+            }
+
+            .articles-hero h1 {
+                font-size: clamp(43px, 13vw, 62px);
+                letter-spacing: -3px;
+            }
+
+            .articles-hero-text > p {
+                margin: 21px 0 25px;
+                font-size: 14px;
+            }
+
+            .article-search-box {
+                min-height: 56px;
+            }
+
+            .article-search-box input {
+                height: 44px;
+                font-size: 12px;
+            }
+
+            .article-search-box button {
+                height: 44px;
+                padding: 0 16px;
+            }
+
+            .article-popular {
+                gap: 6px;
+            }
+
+            .article-popular button {
+                padding: 6px 9px;
+                font-size: 9px;
+            }
+
+            .articles-hero-visual {
+                min-height: 410px;
+            }
+
+            .featured-article {
+                width: min(360px, 88%);
+            }
+
+            .featured-article-image {
+                height: 195px;
+            }
+
+            .article-floating {
+                padding: 9px 11px;
+            }
+
+            .article-floating-icon {
+                width: 27px;
+                height: 27px;
+            }
+
+            .article-floating strong {
+                font-size: 10px;
+            }
+
+            .article-floating small {
+                font-size: 7px;
+            }
+
+            .article-floating-one {
+                right: 0;
+                top: 25px;
+            }
+
+            .article-floating-two {
+                left: 0;
+                bottom: 25px;
+            }
+
+            .article-topic-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .article-topic-card {
+                min-height: 130px;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ====================================================== */
+
+        @media (max-width: 500px) {
+
+            .articles-hero-content {
+                padding-top: 50px;
+            }
+
+            .articles-hero-badge {
+                margin-bottom: 19px;
+                font-size: 9px;
+            }
+
+            .articles-hero h1 {
+                font-size: 43px;
+            }
+
+            .articles-hero-text > p {
+                font-size: 13px;
+            }
+
+            .article-search-box button {
+                padding: 0 13px;
+                font-size: 10px;
+            }
+
+            .article-popular > span {
+                width: 100%;
+                margin-bottom: 1px;
+            }
+
+            .articles-hero-visual {
+                min-height: 370px;
+            }
+
+            .featured-article {
+                width: 86%;
+                border-radius: 17px;
+            }
+
+            .featured-article-image {
+                height: 165px;
+            }
+
+            .featured-article-content {
+                padding: 16px;
+            }
+
+            .featured-article-content h2 {
+                font-size: 18px;
+            }
+
+            .featured-article-content p {
+                font-size: 10px;
+            }
+
+            .article-floating-one {
+                right: -3px;
+                top: 13px;
+            }
+
+            .article-floating-two {
+                left: -3px;
+                bottom: 13px;
+            }
+
+            .article-topic-card {
+                min-height: 120px;
+                padding: 14px;
+            }
+
+            .article-topic-icon {
+                width: 35px;
+                height: 35px;
+                margin-bottom: 12px;
+            }
+
+            .article-topic-card strong {
+                font-size: 11px;
+            }
+
+            .article-image {
+                height: 225px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .article-floating {
+                animation: none;
+            }
+
+            .article-card,
+            .featured-article,
+            .article-topic-card,
+            .article-search-box button {
+                transition: none;
+            }
+
+        }
+
+    </style>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                Skill<span>ora</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="articles.html" class="active">
+                    Articles
+                </a>
+
+                <a href="/HTML/about.html">
+                    About
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                    aria-label="Toggle theme"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+                <button class="login-btn">
+                    Log in
+                </button>
+
+                <button class="signup-btn">
+                    Join Skillora
+                </button>
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         ARTICLES HERO
+    ====================================================== -->
+
+    <section class="articles-hero">
+
+        <div class="articles-hero-content">
+
+
+            <!-- HERO TEXT -->
+
+            <div class="articles-hero-text">
+
+                <div class="articles-hero-badge">
+                    Learn. Build. Grow.
+                </div>
+
+                <h1>
+                    Ideas worth
+                    <span>reading.</span>
+                </h1>
+
+                <p>
+                    Practical insights, useful guides and ideas
+                    from creators, freelancers and professionals
+                    building their future.
+                </p>
+
+
+                <!-- SEARCH -->
+
+                <div class="article-search-box">
+
+                    <input
+                        type="text"
+                        id="articleSearch"
+                        placeholder="Search articles..."
+                        autocomplete="off"
+                    >
+
+                    <button id="articleSearchBtn">
+                        Search
+                    </button>
+
+                </div>
+
+
+                <!-- POPULAR -->
+
+                <div class="article-popular">
+
+                    <span>Popular:</span>
+
+                    <button data-topic="Technology">
+                        Technology
+                    </button>
+
+                    <button data-topic="Freelancing">
+                        Freelancing
+                    </button>
+
+                    <button data-topic="Design">
+                        Design
+                    </button>
+
+                    <button data-topic="Career">
+                        Career
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HERO VISUAL -->
+
+            <div class="articles-hero-visual">
+
+
+                <!-- FLOATING CARD -->
+
+                <div class="article-floating article-floating-one">
+
+                    <span class="article-floating-icon">
+                        ↗
+                    </span>
+
+                    <div>
+                        <strong>10 min read</strong>
+                        <small>Fresh insights</small>
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURED ARTICLE -->
+
+                <article class="featured-article">
+
+                    <div class="featured-article-image">
+
+                        <span class="featured-article-label">
+                            FEATURED
+                        </span>
+
+                        <span class="featured-article-visual-text">
+                            FUTURE
+                        </span>
+
+                    </div>
+
+
+                    <div class="featured-article-content">
+
+                        <span class="featured-article-category">
+                            TECHNOLOGY
+                        </span>
+
+                        <h2>
+                            How AI is changing the way freelancers work
+                        </h2>
+
+                        <p>
+                            Explore how modern AI tools are changing
+                            workflows, productivity and opportunities
+                            for independent professionals.
+                        </p>
+
+
+                        <div class="featured-article-meta">
+
+                            <div class="featured-author">
+
+                                <span class="featured-author-avatar">
+                                    MA
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Muhammad Ali
+                                    </strong>
+
+                                    <small>
+                                        Technology Writer
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <span class="featured-reading">
+                                8 min read
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FLOATING CARD -->
+
+                <div class="article-floating article-floating-two">
+
+                    <span class="article-floating-icon">
+                        ✦
+                    </span>
+
+                    <div>
+                        <strong>120+ articles</strong>
+                        <small>Knowledge hub</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TOPICS
+    ====================================================== -->
+
+    <section class="article-topics section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        EXPLORE
+                    </span>
+
+                    <h2>
+                        Browse topics
+                    </h2>
+
+                </div>
+
+                <span
+                    class="article-count"
+                    id="articleCount"
+                >
+                    6 articles
+                </span>
+
+            </div>
+
+
+            <div class="article-topic-grid">
+
+
+                <button
+                    class="article-topic-card active"
+                    data-topic="All"
+                >
+
+                    <span class="article-topic-icon">
+                        ✦
+                    </span>
+
+                    <strong>
+                        All Articles
+                    </strong>
+
+                    <small>
+                        Everything
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="article-topic-card"
+                    data-topic="Technology"
+                >
+
+                    <span class="article-topic-icon">
+                        ◈
+                    </span>
+
+                    <strong>
+                        Technology
+                    </strong>
+
+                    <small>
+                        Tech & development
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="article-topic-card"
+                    data-topic="Freelancing"
+                >
+
+                    <span class="article-topic-icon">
+                        ↗
+                    </span>
+
+                    <strong>
+                        Freelancing
+                    </strong>
+
+                    <small>
+                        Work independently
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="article-topic-card"
+                    data-topic="Design"
+                >
+
+                    <span class="article-topic-icon">
+                        ◇
+                    </span>
+
+                    <strong>
+                        Design
+                    </strong>
+
+                    <small>
+                        Creative thinking
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="article-topic-card"
+                    data-topic="Career"
+                >
+
+                    <span class="article-topic-icon">
+                        ↑
+                    </span>
+
+                    <strong>
+                        Career
+                    </strong>
+
+                    <small>
+                        Skills & growth
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ARTICLE MARKETPLACE
+    ====================================================== -->
+
+    <section
+        class="articles-marketplace section"
+        id="articles"
+    >
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        KNOWLEDGE HUB
+                    </span>
+
+                    <h2>
+                        Latest articles
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="article-grid"
+                id="articleGrid"
+            >
+
+
+                <!-- ARTICLE 1 -->
+
+                <article
+                    class="article-card"
+                    data-topic="Technology"
+                >
+
+                    <div class="article-image article-tech">
+
+                        <span class="article-tag">
+                            NEW
+                        </span>
+
+                        <span class="article-image-text">
+                            AI
+                        </span>
+
+                    </div>
+
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            TECHNOLOGY
+                        </span>
+
+                        <h3>
+                            AI Tools Every Freelancer Should Know
+                        </h3>
+
+                        <p class="article-description">
+                            Discover practical AI tools that can
+                            improve your daily workflow and save time.
+                        </p>
+
+
+                        <div class="article-meta">
+
+                            <div class="article-author">
+
+                                <span class="article-author-avatar">
+                                    MA
+                                </span>
+
+                                <span class="article-author-name">
+                                    Muhammad Ali
+                                </span>
+
+                            </div>
+
+                            <span class="article-reading-time">
+                                6 min read
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ARTICLE 2 -->
+
+                <article
+                    class="article-card"
+                    data-topic="Freelancing"
+                >
+
+                    <div class="article-image article-freelance">
+
+                        <span class="article-image-text">
+                            WORK
+                        </span>
+
+                    </div>
+
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            FREELANCING
+                        </span>
+
+                        <h3>
+                            How to Build a Freelance Career From Zero
+                        </h3>
+
+                        <p class="article-description">
+                            A practical roadmap for finding your first
+                            clients and building long-term momentum.
+                        </p>
+
+
+                        <div class="article-meta">
+
+                            <div class="article-author">
+
+                                <span class="article-author-avatar">
+                                    SA
+                                </span>
+
+                                <span class="article-author-name">
+                                    Sarah Ahmed
+                                </span>
+
+                            </div>
+
+                            <span class="article-reading-time">
+                                8 min read
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ARTICLE 3 -->
+
+                <article
+                    class="article-card"
+                    data-topic="Design"
+                >
+
+                    <div class="article-image article-design">
+
+                        <span class="article-image-text">
+                            UX
+                        </span>
+
+                    </div>
+
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            DESIGN
+                        </span>
+
+                        <h3>
+                            The Principles Behind Better UI Design
+                        </h3>
+
+                        <p class="article-description">
+                            Learn the fundamentals that make digital
+                            interfaces feel simple and intuitive.
+                        </p>
+
+
+                        <div class="article-meta">
+
+                            <div class="article-author">
+
+                                <span class="article-author-avatar">
+                                    ZN
+                                </span>
+
+                                <span class="article-author-name">
+                                    Zainab Noor
+                                </span>
+
+                            </div>
+
+                            <span class="article-reading-time">
+                                7 min read
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ARTICLE 4 -->
+
+                <article
+                    class="article-card"
+                    data-topic="Business"
+                >
+
+                    <div class="article-image article-business">
+
+                        <span class="article-image-text">
+                            GROW
+                        </span>
+
+                    </div>
+
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            BUSINESS
+                        </span>
+
+                        <h3>
+                            Turning Your Skill Into a Real Business
+                        </h3>
+
+                        <p class="article-description">
+                            Understand how to package your skills,
+                            position your offer and attract clients.
+                        </p>
+
+
+                        <div class="article-meta">
+
+                            <div class="article-author">
+
+                                <span class="article-author-avatar">
+                                    HR
+                                </span>
+
+                                <span class="article-author-name">
+                                    Hassan Raza
+                                </span>
+
+                            </div>
+
+                            <span class="article-reading-time">
+                                9 min read
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ARTICLE 5 -->
+
+                <article
+                    class="article-card"
+                    data-topic="Career"
+                >
+
+                    <div class="article-image article-career">
+
+                        <span class="article-image-text">
+                            NEXT
+                        </span>
+
+                    </div>
+
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            CAREER
+                        </span>
+
+                        <h3>
+                            Skills That Can Shape Your Career in 2026
+                        </h3>
+
+                        <p class="article-description">
+                            Explore valuable skills that can help
+                            professionals stay competitive.
+                        </p>
+
+
+                        <div class="article-meta">
+
+                            <div class="article-author">
+
+                                <span class="article-author-avatar">
+                                    FM
+                                </span>
+
+                                <span class="article-author-name">
+                                    Fatima Malik
+                                </span>
+
+                            </div>
+
+                            <span class="article-reading-time">
+                                5 min read
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ARTICLE 6 -->
+
+                <article
+                    class="article-card"
+                    data-topic="SEO"
+                >
+
+                    <div class="article-image article-seo">
+
+                        <span class="article-image-text">
+                            SEO
+                        </span>
+
+                    </div>
+
+
+                    <div class="article-content">
+
+                        <span class="article-category">
+                            SEO
+                        </span>
+
+                        <h3>
+                            A Beginner's Guide to Better Website SEO
+                        </h3>
+
+                        <p class="article-description">
+                            Learn the essential SEO concepts every
+                            website owner should understand.
+                        </p>
+
+
+                        <div class="article-meta">
+
+                            <div class="article-author">
+
+                                <span class="article-author-avatar">
+                                    AR
+                                </span>
+
+                                <span class="article-author-name">
+                                    Ahmed Raza
+                                </span>
+
+                            </div>
+
+                            <span class="article-reading-time">
+                                7 min read
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- NO RESULTS -->
+
+            <div
+                class="no-articles"
+                id="noArticles"
+                style="display:none;"
+            >
+
+                <h3>
+                    No articles found
+                </h3>
+
+                <p>
+                    Try another search or topic.
+                </p>
+
+                <button id="resetArticles">
+                    Show all articles
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta articles-page-cta">
+
+        <div class="container cta-content">
+
+            <div>
+
+                <span class="eyebrow">
+                    HAVE SOMETHING TO SHARE?
+                </span>
+
+                <h2>
+                    Turn your knowledge<br>
+                    into an opportunity.
+                </h2>
+
+                <p>
+                    Share your experience, ideas and expertise
+                    with the Skillora community.
+                </p>
+
+            </div>
+
+
+            <button
+                class="cta-btn"
+                id="writeArticleBtn"
+            >
+                Become a contributor →
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    Skill<span>ora</span>
+                </a>
+
+                <p>
+                    A modern marketplace connecting people,
+                    skills and opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Marketplace
+                </h4>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="/HTML/about.html">
+                    About 
+                </a>
+
+                <a href="#">
+                    Featured
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="articles.html">
+                    Articles
+                </a>
+
+                <a href="#">
+                    Help Center
+                </a>
+
+                <a href="#">
+                    Community
+                </a>
+
+                <a href="#">
+                    Become a Seller
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <span>
+                © 2026 Skillora. All rights reserved.
+            </span>
+
+            <span>
+                A Project of Mohid & Co.
+            </span>
+
+            <span>
+                Built for creators & freelancers.
+            </span>
+
+        </div>
+
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="/SCRIPTS/supabase.js"></script>
+
+<script src="/SCRIPTS/auth.js"></script>
+
+
+    <script src="/SCRIPTS/articles.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title id="pageTitle">Add Service — Skillora</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================
+           ADD SERVICE PAGE
+        ========================================= */
+
+        .add-service-page {
+            min-height: calc(100vh - 78px);
+            padding: 80px 20px;
+        }
+
+        .add-service-container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .add-service-header {
+            margin-bottom: 35px;
+        }
+
+        .add-service-header .eyebrow {
+            margin-bottom: 10px;
+        }
+
+        .add-service-header h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 38px;
+            letter-spacing: -1.5px;
+        }
+
+        .add-service-header p {
+            margin-top: 10px;
+            color: var(--text-soft);
+        }
+
+
+        /* =========================================
+           FORM CARD
+        ========================================= */
+
+        .add-service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+
+            padding: 13px 15px;
+
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            color: var(--text);
+            font-size: 15px;
+            font-family: inherit;
+
+            outline: none;
+            transition: .2s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+            line-height: 1.5;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent);
+        }
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .form-message {
+            display: none;
+
+            padding: 12px 15px;
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-message.error {
+            display: block;
+
+            background: rgba(255, 80, 80, .1);
+            border: 1px solid rgba(255, 80, 80, .25);
+            color: #ff6b6b;
+        }
+
+        .form-message.success {
+            display: block;
+
+            background: rgba(215, 255, 79, .1);
+            border: 1px solid rgba(215, 255, 79, .25);
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           ACTIONS
+        ========================================= */
+
+        .add-service-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+
+            margin-top: 10px;
+        }
+
+        .cancel-btn {
+            padding: 12px 20px;
+
+            background: transparent;
+            color: var(--text);
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            font-weight: 700;
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .cancel-btn:hover {
+            background: var(--bg-soft);
+        }
+
+        .save-service-btn {
+            padding: 12px 20px;
+
+            background: var(--accent);
+            color: #101300;
+
+            border: none;
+            border-radius: 9px;
+
+            font-weight: 700;
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .save-service-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .save-service-btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .add-service-page {
+                padding: 55px 16px;
+            }
+
+            .add-service-header h1 {
+                font-size: 28px;
+            }
+
+            .add-service-card {
+                padding: 24px 18px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="/HTML/index.html" class="logo">
+                Skill<span>ora</span>
+            </a>
+
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="/HTML/services.html">Services</a>
+                <a href="/HTML/products.html">Products</a>
+                <a href="/HTML/articles.html">Articles</a>
+                <a href="/HTML/about.html">About</a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+
+                <a
+                    href="/HTML/login.html"
+                    class="login-btn"
+                >
+                    Log in
+                </a>
+
+
+                <a
+                    href="/HTML/signup.html"
+                    class="signup-btn"
+                >
+                    Join Skillora
+                </a>
+
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         ADD / EDIT SERVICE
+    ========================================= -->
+
+    <main class="add-service-page">
+
+        <div class="add-service-container">
+
+            <div class="add-service-header">
+
+                <span class="eyebrow">
+                    SELLER DASHBOARD
+                </span>
+
+                <h1 id="formHeading">
+                    Add New Service
+                </h1>
+
+                <p>
+                    Fill in the details of the service you want to offer.
+                </p>
+
+            </div>
+
+
+            <div class="add-service-card">
+
+                <div
+                    id="formMessage"
+                    class="form-message"
+                >
+                </div>
+
+
+                <form id="serviceForm">
+
+                    <div class="form-group">
+
+                        <label for="titleInput">
+                            Service Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="titleInput"
+                            placeholder="e.g. I will build a modern responsive website"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="descriptionInput">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="descriptionInput"
+                            placeholder="Describe what you offer, your experience, and what's included..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="categoryInput">
+                                Category
+                            </label>
+
+                            <select id="categoryInput" required>
+                                <option value="">Select category</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Graphic Design">Graphic Design</option>
+                                <option value="Writing & Translation">Writing & Translation</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Video & Animation">Video & Animation</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="priceInput">
+                                Starting Price ($)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="priceInput"
+                                placeholder="e.g. 50"
+                                min="1"
+                                step="0.01"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="imageUrlInput">
+                            Image URL <span style="text-transform:none;font-weight:400;">(optional)</span>
+                        </label>
+
+                        <input
+                            type="url"
+                            id="imageUrlInput"
+                            placeholder="https://..."
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="statusInput">
+                            Status
+                        </label>
+
+                        <select id="statusInput">
+                            <option value="active">Active (visible to buyers)</option>
+                            <option value="paused">Paused</option>
+                            <option value="draft">Draft</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="add-service-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelBtn"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="save-service-btn"
+                            id="saveBtn"
+                        >
+                            Save Service
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="/SCRIPTS/supabase.js"></script>
+
+    <script src="/SCRIPTS/auth.js"></script>
+
+    <script src="/SCRIPTS/add-service.js"></script>
+
+</body>
+
+</html>

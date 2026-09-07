@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us — Skillora</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.about-hero {
+    padding: 0px 0 0 ;
+    overflow: hidden;
+    border-bottom: 0.5px solid var(--border);
+}
+
+.about-hero-grid {
+    min-height: 580px;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.about-hero-content {
+    max-width: 650px;
+}
+
+.about-hero-content h1 {
+    margin: 18px 0 25px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(52px, 6vw, 82px);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    font-weight: 700;
+}
+
+.about-hero-content h1 span,
+.about-story-grid h2 span,
+.mission-card h3 span,
+.about-heading h2 span,
+.connection-header h2 span,
+.stats-intro h2 span,
+.philosophy-content h2 span,
+.about-cta-box h2 span {
+    color: var(--accent);
+}
+
+.about-hero-content > p {
+    max-width: 570px;
+    color: var(--text-soft);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.about-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 35px;
+}
+
+.about-primary-btn,
+.about-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 0 23px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.about-primary-btn {
+    background: var(--accent);
+    color: #0b0d10;
+}
+
+.about-primary-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.about-primary-btn span {
+    font-size: 19px;
+}
+
+.about-secondary-btn {
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: var(--card);
+}
+
+.about-secondary-btn:hover {
+    background: var(--card-hover);
+    border-color: #3a4048;
+}
+ .nav-links a.active {
+            position: relative;
+            color: var(--text);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -9px;
+            height: 2px;
+            border-radius: 5px;
+            background: var(--accent);
+        }
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.about-hero-visual {
+    position: relative;
+    width: min(520px, 100%);
+    aspect-ratio: 1;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-orbit {
+    position: absolute;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 82%;
+    height: 82%;
+}
+
+.orbit-two {
+    width: 58%;
+    height: 58%;
+    border-color: #343a42;
+}
+
+.about-center-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    box-shadow:
+        0 0 80px rgba(215, 255, 79, 0.16),
+        0 0 0 15px rgba(215, 255, 79, 0.03);
+}
+
+.about-center-logo span {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #0b0d10;
+}
+
+.floating-about-card {
+    position: absolute;
+    min-width: 150px;
+    padding: 17px 19px;
+    background: rgba(21, 25, 31, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    z-index: 4;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.floating-about-card strong {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    color: var(--text);
+}
+
+.floating-about-card small {
+    display: block;
+    margin-top: 3px;
+    color: var(--text-muted);
+}
+
+.card-top {
+    top: 8%;
+    left: 2%;
+}
+
+.card-right {
+    right: -2%;
+    top: 43%;
+}
+
+.card-bottom {
+    bottom: 7%;
+    left: 14%;
+}
+
+.floating-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    position: absolute;
+    box-shadow: 0 0 18px rgba(215, 255, 79, 0.4);
+}
+
+.dot-one {
+    top: 19%;
+    right: 17%;
+}
+
+.dot-two {
+    bottom: 17%;
+    right: 19%;
+}
+
+.dot-three {
+    top: 46%;
+    left: 8%;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.about-story {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.about-story-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 100px;
+}
+
+.about-section-heading h2 {
+    margin-top: 16px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+}
+
+.about-story-content {
+    padding-top: 7px;
+}
+
+.about-story-content p {
+    max-width: 650px;
+    margin-bottom: 22px;
+    color: var(--text-soft);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.about-story-content .story-large {
+    color: var(--text);
+    font-size: 25px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   MISSION
+========================================================= */
+
+.mission-section {
+    padding-top: 20px;
+    padding-bottom: 120px;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.mission-card {
+    position: relative;
+    min-height: 430px;
+    padding: 42px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.mission-card::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    right: -80px;
+    bottom: -100px;
+}
+
+.mission-card.mission-dark {
+    background: #0f1318;
+}
+
+.mission-number {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    color: var(--text-muted);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+}
+
+.mission-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 23px;
+    margin-bottom: 70px;
+}
+
+.mission-card h3 {
+    max-width: 450px;
+    margin: 15px 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+}
+
+.mission-card p {
+    max-width: 470px;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   WHY SKILLORA
+========================================================= */
+
+.why-section {
+    padding-bottom: 120px;
+}
+
+.about-heading {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    align-items: end;
+    gap: 60px;
+}
+
+.about-heading h2 {
+    margin-top: 15px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(42px, 5vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+}
+
+.about-heading > p {
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin: 0 0 4px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 55px;
+}
+
+.value-card {
+    min-height: 275px;
+    padding: 27px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: var(--bg-soft);
+    transition: 0.25s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    background: var(--card);
+    border-color: #353b43;
+}
+
+.value-icon {
+    color: var(--accent);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 80px;
+}
+
+.value-card h3 {
+    margin-bottom: 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 21px;
+}
+
+.value-card p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONNECTION
+========================================================= */
+
+.connection-section {
+    padding-top: 30px;
+    padding-bottom: 120px;
+}
+
+.connection-header {
+    max-width: 700px;
+}
+
+.connection-header h2 {
+    margin-top: 15px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+}
+
+.connection-flow {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 75px;
+}
+
+.connection-item {
+    flex: 1;
+}
+
+.connection-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    background: var(--bg);
+}
+
+.connection-item h3 {
+    margin: 25px 0 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+}
+
+.connection-item p {
+    max-width: 210px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.connection-line {
+    flex: 0 0 70px;
+    height: 1px;
+    background: var(--border);
+    margin-top: 29px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.about-stats {
+    padding-bottom: 120px;
+}
+
+.stats-panel {
+    padding: 55px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(215, 255, 79, 0.07),
+            transparent 30%
+        ),
+        var(--card);
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.stats-intro h2 {
+    margin-top: 15px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 43px;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+}
+
+.stats-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px 70px;
+}
+
+.about-stat strong {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 42px;
+    letter-spacing: -1px;
+}
+
+.about-stat span {
+    display: block;
+    margin-top: 4px;
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+.philosophy-section {
+    padding: 130px 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.philosophy-content {
+    max-width: 1000px;
+}
+
+.philosophy-content h2 {
+    margin-top: 25px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(50px, 6vw, 78px);
+    line-height: 1;
+    letter-spacing: -3px;
+}
+
+.philosophy-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 65px;
+}
+
+.philosophy-bottom p {
+    max-width: 580px;
+    color: var(--text-soft);
+    line-height: 1.8;
+}
+
+.philosophy-mark {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 0.8;
+}
+
+.philosophy-mark span {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.about-cta {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.about-cta-box {
+    padding: 65px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-cta-box h2 {
+    margin: 15px 0;
+    max-width: 700px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(40px, 5vw, 58px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.about-cta-box p {
+    color: var(--text-soft);
+    margin: 0;
+}
+
+.about-cta-actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light-mode .floating-about-card {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .mission-card.mission-dark {
+    background: #f2f3ee;
+}
+
+body.light-mode .stats-panel {
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(180, 210, 50, 0.12),
+            transparent 30%
+        ),
+        var(--card);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .about-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .about-hero-content {
+        max-width: 750px;
+    }
+
+    .about-hero-visual {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cta-box {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .about-hero {
+        padding: 75px 0 80px;
+    }
+
+    .about-hero-content h1 {
+        font-size: 54px;
+        letter-spacing: -2px;
+    }
+
+    .about-hero-content > p {
+        font-size: 16px;
+    }
+
+    .about-hero-visual {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .about-center-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-center-logo span {
+        font-size: 58px;
+    }
+
+    .floating-about-card {
+        min-width: 125px;
+        padding: 13px;
+    }
+
+    .floating-about-card strong {
+        font-size: 19px;
+    }
+
+    .floating-about-card small {
+        font-size: 11px;
+    }
+
+    .card-top {
+        left: 0;
+    }
+
+    .card-right {
+        right: 0;
+    }
+
+    .card-bottom {
+        left: 8%;
+    }
+
+    .about-story {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-card {
+        min-height: 390px;
+        padding: 30px;
+    }
+
+    .mission-icon {
+        margin-bottom: 55px;
+    }
+
+    .mission-card h3 {
+        font-size: 34px;
+    }
+
+    .about-heading {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 40px;
+    }
+
+    .connection-flow {
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 50px;
+    }
+
+    .connection-item {
+        width: 100%;
+    }
+
+    .connection-item p {
+        max-width: 500px;
+    }
+
+    .connection-line {
+        width: 1px;
+        height: 35px;
+        flex: none;
+        margin: 0 0 0 29px;
+    }
+
+    .stats-panel {
+        padding: 35px 28px;
+    }
+
+    .stats-list {
+        gap: 35px 20px;
+    }
+
+    .about-stat strong {
+        font-size: 34px;
+    }
+
+    .philosophy-section {
+        padding: 90px 0;
+    }
+
+    .philosophy-content h2 {
+        font-size: 50px;
+        letter-spacing: -2px;
+    }
+
+    .philosophy-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 45px;
+    }
+
+    .philosophy-mark {
+        font-size: 65px;
+    }
+
+    .about-cta {
+        padding: 85px 0;
+    }
+
+    .about-cta-box {
+        padding: 35px 28px;
+    }
+
+    .about-cta-actions {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .about-hero-content h1 {
+        font-size: 45px;
+    }
+
+    .about-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .about-primary-btn,
+    .about-secondary-btn {
+        width: 100%;
+    }
+
+    .about-hero-visual {
+        max-width: 350px;
+    }
+
+    .about-center-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .about-center-logo span {
+        font-size: 48px;
+    }
+
+    .floating-about-card {
+        min-width: 105px;
+        padding: 11px;
+    }
+
+    .floating-about-card strong {
+        font-size: 17px;
+    }
+
+    .floating-about-card small {
+        font-size: 10px;
+    }
+
+    .mission-card h3 {
+        font-size: 30px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-card {
+        min-height: auto;
+    }
+
+    .value-icon {
+        margin-bottom: 45px;
+    }
+
+    .stats-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-intro h2 {
+        font-size: 36px;
+    }
+
+    .philosophy-content h2 {
+        font-size: 42px;
+    }
+
+    .about-cta-box h2 {
+        font-size: 38px;
+    }
+
+}
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Skill<span>ora</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="articles.html">
+                Articles
+            </a>
+
+            <a href="/HTML/about.html" class="active">
+                About 
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-btn"
+                id="themeBtn"
+                aria-label="Toggle theme"
+            >
+                <span id="themeIcon">☀</span>
+            </button>
+
+            <button class="login-btn" id="loginBtn">
+                Log in
+            </button>
+
+            <button class="signup-btn" id="signupBtn">
+                Join Skillora
+            </button>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <div class="about-hero-grid">
+
+            <div class="about-hero-content">
+
+                <span class="eyebrow">
+                    ABOUT SKILLORA
+                </span>
+
+                <h1>
+                    Built for people
+                    <span>who build.</span>
+                </h1>
+
+                <p>
+                    Skillora is a modern marketplace connecting talented
+                    freelancers with people and businesses looking for
+                    great work, useful products, and real expertise.
+                </p>
+
+                <div class="about-hero-actions">
+
+                    <a href="services.html" class="about-primary-btn">
+                        Explore Skillora
+                        <span>→</span>
+                    </a>
+
+                    <a href="#story" class="about-secondary-btn">
+                        Our story
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Visual -->
+
+            <div class="about-hero-visual">
+
+                <div class="hero-orbit orbit-one"></div>
+                <div class="hero-orbit orbit-two"></div>
+
+                <div class="about-center-logo">
+                    <span>S</span>
+                </div>
+
+                <div class="floating-about-card card-top">
+                    <strong>10K+</strong>
+                    <small>Creative minds</small>
+                </div>
+
+                <div class="floating-about-card card-right">
+                    <strong>25K+</strong>
+                    <small>Projects completed</small>
+                </div>
+
+                <div class="floating-about-card card-bottom">
+                    <strong>150+</strong>
+                    <small>Skills & categories</small>
+                </div>
+
+                <div class="floating-dot dot-one"></div>
+                <div class="floating-dot dot-two"></div>
+                <div class="floating-dot dot-three"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STORY
+========================================================= -->
+
+<section class="about-story section" id="story">
+
+    <div class="container">
+
+        <div class="about-story-grid">
+
+            <div class="about-section-heading">
+
+                <span class="eyebrow">
+                    OUR STORY
+                </span>
+
+                <h2>
+                    Skills deserve
+                    <span>a place to grow.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="about-story-content">
+
+                <p class="story-large">
+                    The internet gave people the ability to work
+                    from anywhere. Skillora was created to make that
+                    opportunity easier to discover.
+                </p>
+
+                <p>
+                    We believe great work can come from anywhere.
+                    A developer working from a bedroom, a designer
+                    building a portfolio late at night, or a small
+                    business looking for exactly the right person —
+                    everyone should have a place to connect.
+                </p>
+
+                <p>
+                    Skillora brings services, digital products,
+                    knowledge and talented people into one simple
+                    marketplace.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MISSION / VISION
+========================================================= -->
+
+<section class="mission-section section">
+
+    <div class="container">
+
+        <div class="mission-grid">
+
+            <div class="mission-card">
+
+                <div class="mission-number">
+                    01
+                </div>
+
+                <div class="mission-icon">
+                    ↗
+                </div>
+
+                <span class="eyebrow">
+                    OUR MISSION
+                </span>
+
+                <h3>
+                    Make talent
+                    <span>accessible.</span>
+                </h3>
+
+                <p>
+                    We want talented people to spend less time
+                    searching for opportunities and more time
+                    doing work they are proud of.
+                </p>
+
+            </div>
+
+
+            <div class="mission-card mission-dark">
+
+                <div class="mission-number">
+                    02
+                </div>
+
+                <div class="mission-icon">
+                    ◇
+                </div>
+
+                <span class="eyebrow">
+                    OUR VISION
+                </span>
+
+                <h3>
+                    A marketplace
+                    <span>without limits.</span>
+                </h3>
+
+                <p>
+                    Skillora aims to create a global ecosystem where
+                    skills, ideas and opportunities can meet without
+                    unnecessary barriers.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHY SKILLORA
+========================================================= -->
+
+<section class="why-section section">
+
+    <div class="container">
+
+        <div class="section-heading about-heading">
+
+            <div>
+                <span class="eyebrow">
+                    WHY SKILLORA
+                </span>
+
+                <h2>
+                    More than a
+                    <span>marketplace.</span>
+                </h2>
+            </div>
+
+            <p>
+                Everything we build is designed around one idea:
+                making online work simpler, more useful and more human.
+            </p>
+
+        </div>
+
+
+        <div class="values-grid">
+
+            <article class="value-card">
+
+                <div class="value-icon">
+                    01
+                </div>
+
+                <h3>
+                    Real talent
+                </h3>
+
+                <p>
+                    Discover people with practical skills,
+                    experience and the ability to deliver.
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-icon">
+                    02
+                </div>
+
+                <h3>
+                    Simple discovery
+                </h3>
+
+                <p>
+                    Find the right service, product or expertise
+                    without getting lost in complexity.
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-icon">
+                    03
+                </div>
+
+                <h3>
+                    Built for creators
+                </h3>
+
+                <p>
+                    Give freelancers a place to showcase their
+                    abilities and turn skills into opportunities.
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-icon">
+                    04
+                </div>
+
+                <h3>
+                    Always evolving
+                </h3>
+
+                <p>
+                    We continuously improve the platform as the
+                    way people work continues to change.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MARKETPLACE FLOW
+========================================================= -->
+
+<section class="connection-section section">
+
+    <div class="container">
+
+        <div class="connection-header">
+
+            <span class="eyebrow">
+                THE SKILLORA ECOSYSTEM
+            </span>
+
+            <h2>
+                One platform.
+                <span>Endless possibilities.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="connection-flow">
+
+            <div class="connection-item">
+
+                <div class="connection-circle">
+                    01
+                </div>
+
+                <h3>
+                    Create
+                </h3>
+
+                <p>
+                    Freelancers showcase their skills,
+                    services and digital products.
+                </p>
+
+            </div>
+
+
+            <div class="connection-line"></div>
+
+
+            <div class="connection-item">
+
+                <div class="connection-circle">
+                    02
+                </div>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    Clients explore categories, services,
+                    products and expertise.
+                </p>
+
+            </div>
+
+
+            <div class="connection-line"></div>
+
+
+            <div class="connection-item">
+
+                <div class="connection-circle">
+                    03
+                </div>
+
+                <h3>
+                    Connect
+                </h3>
+
+                <p>
+                    The right people connect around the
+                    right project.
+                </p>
+
+            </div>
+
+
+            <div class="connection-line"></div>
+
+
+            <div class="connection-item">
+
+                <div class="connection-circle">
+                    04
+                </div>
+
+                <h3>
+                    Grow
+                </h3>
+
+                <p>
+                    Great work creates new opportunities
+                    for everyone involved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STATS
+========================================================= -->
+
+<section class="about-stats section">
+
+    <div class="container">
+
+        <div class="stats-panel">
+
+            <div class="stats-intro">
+
+                <span class="eyebrow">
+                    SKILLORA BY THE NUMBERS
+                </span>
+
+                <h2>
+                    Built around
+                    <span>possibility.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="stats-list">
+
+                <div class="about-stat">
+                    <strong>10K+</strong>
+                    <span>Freelancers</span>
+                </div>
+
+                <div class="about-stat">
+                    <strong>25K+</strong>
+                    <span>Projects</span>
+                </div>
+
+                <div class="about-stat">
+                    <strong>150+</strong>
+                    <span>Categories</span>
+                </div>
+
+                <div class="about-stat">
+                    <strong>40+</strong>
+                    <span>Countries</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PHILOSOPHY
+========================================================= -->
+
+<section class="philosophy-section">
+
+    <div class="container">
+
+        <div class="philosophy-content">
+
+            <span class="eyebrow">
+                OUR PHILOSOPHY
+            </span>
+
+            <h2>
+                Good work starts
+                <span>with the right connection.</span>
+            </h2>
+
+            <div class="philosophy-bottom">
+
+                <p>
+                    We are building Skillora around people —
+                    not just transactions. Because behind every
+                    service is a skill, behind every project is
+                    an idea, and behind every successful delivery
+                    is a person who made it happen.
+                </p>
+
+                <div class="philosophy-mark">
+                    S<span>.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="about-cta section">
+
+    <div class="container">
+
+        <div class="about-cta-box">
+
+            <div>
+
+                <span class="eyebrow">
+                    READY TO START?
+                </span>
+
+                <h2>
+                    Your next opportunity
+                    <span>could be here.</span>
+                </h2>
+
+                <p>
+                    Explore services, discover talented people
+                    or start sharing your own skills.
+                </p>
+
+            </div>
+
+
+            <div class="about-cta-actions">
+
+                <a href="services.html" class="about-primary-btn">
+                    Explore services
+                    <span>→</span>
+                </a>
+
+                <a href="#" class="about-secondary-btn" id="joinCta">
+                    Join Skillora
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    Skillora<span>.</span>
+                </a>
+
+                <p>
+                    A modern marketplace for skills,
+                    services, products and ideas.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Marketplace</h4>
+
+                <a href="services.html">Services</a>
+                <a href="products.html">Products</a>
+                <a href="/HTML/about.html">About</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Resources</h4>
+
+                <a href="articles.html">Articles</a>
+                <a href="#">Help Center</a>
+                <a href="#">Community</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Company</h4>
+
+                <a href="about.html">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Skillora. All rights reserved.
+            </p>
+
+            <p>
+                A Project of Mohid & Co.
+            </p>
+
+            <p>
+                Built for creators & freelancers.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="/SCRIPTS/supabase.js"></script>
+
+<script src="/SCRIPTS/auth.js"></script>
+<script src="/SCRIPTS/about.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Services — Skillora</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================
+           MY SERVICES PAGE
+        ========================================= */
+
+        .services-page {
+            min-height: calc(100vh - 78px);
+            padding: 80px 20px;
+        }
+
+        .services-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+
+            margin-bottom: 35px;
+        }
+
+        .services-header .eyebrow {
+            margin-bottom: 10px;
+        }
+
+        .services-header h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 42px;
+            letter-spacing: -1.5px;
+        }
+
+        .services-header p {
+            margin-top: 10px;
+            color: var(--text-soft);
+        }
+
+        .add-service-btn {
+            padding: 13px 22px;
+
+            background: var(--accent);
+            color: #101300;
+
+            border: none;
+            border-radius: 9px;
+
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+
+            transition: .2s ease;
+        }
+
+        .add-service-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           LOADING / EMPTY
+        ========================================= */
+
+        .services-loading,
+        .services-empty {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-soft);
+        }
+
+        .services-empty h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 22px;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .services-empty .add-service-btn {
+            margin-top: 18px;
+        }
+
+
+        /* =========================================
+           SERVICES GRID
+        ========================================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+
+            margin-bottom: 12px;
+        }
+
+        .service-status {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 4px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: capitalize;
+
+            white-space: nowrap;
+        }
+
+        .service-status.active {
+            background: rgba(215, 255, 79, .1);
+            border: 1px solid rgba(215, 255, 79, .2);
+            color: var(--accent);
+        }
+
+        .service-status.paused {
+            background: rgba(255, 180, 80, .1);
+            border: 1px solid rgba(255, 180, 80, .25);
+            color: #ffb450;
+        }
+
+        .service-status.draft {
+            background: rgba(150, 150, 150, .1);
+            border: 1px solid rgba(150, 150, 150, .25);
+            color: var(--text-soft);
+        }
+
+        .service-card h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+            line-height: 1.3;
+
+            margin-bottom: 8px;
+        }
+
+        .service-card .service-category {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p.service-desc {
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.5;
+
+            margin-bottom: 18px;
+
+            flex-grow: 1;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .service-card-price {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+
+            margin-bottom: 18px;
+        }
+
+        .service-card-price span {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .service-card-actions {
+            display: flex;
+            gap: 8px;
+
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .service-card-actions button {
+            flex: 1;
+
+            padding: 9px 10px;
+
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-soft);
+            color: var(--text);
+
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .service-card-actions button:hover {
+            background: var(--border);
+        }
+
+        .service-card-actions .delete-btn:hover {
+            background: rgba(255, 80, 80, .12);
+            border-color: rgba(255, 80, 80, .3);
+            color: #ff6b6b;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .services-page {
+                padding: 55px 16px;
+            }
+
+            .services-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .services-header h1 {
+                font-size: 32px;
+            }
+
+            .add-service-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="/HTML/index.html" class="logo">
+                Skill<span>ora</span>
+            </a>
+
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="/HTML/services.html">Services</a>
+                <a href="/HTML/products.html">Products</a>
+                <a href="/HTML/articles.html">Articles</a>
+                <a href="/HTML/about.html">About</a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                >
+                    <span id="themeIcon">☀</span>
+                </button>
+
+
+                <a
+                    href="/HTML/login.html"
+                    class="login-btn"
+                >
+                    Log in
+                </a>
+
+
+                <a
+                    href="/HTML/signup.html"
+                    class="signup-btn"
+                >
+                    Join Skillora
+                </a>
+
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MY SERVICES
+    ========================================= -->
+
+    <main class="services-page">
+
+        <div class="services-container">
+
+            <div class="services-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        SELLER DASHBOARD
+                    </span>
+
+                    <h1>
+                        My Services
+                    </h1>
+
+                    <p>
+                        Manage the services you're offering on Skillora.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="/HTML/add-services.html"
+                    class="add-service-btn"
+                >
+                    + Add New Service
+                </a>
+
+            </div>
+
+
+            <div
+                id="servicesLoading"
+                class="services-loading"
+            >
+                Loading your services...
+            </div>
+
+
+            <div
+                id="servicesEmpty"
+                class="services-empty"
+                style="display: none;"
+            >
+
+                <h3>
+                    You haven't added any services yet.
+                </h3>
+
+                <p>
+                    Start selling by adding your first service.
+                </p>
+
+                <a
+                    href="/HTML/add-service.html"
+                    class="add-service-btn"
+                >
+                    + Add New Service
+                </a>
+
+            </div>
+
+
+            <div
+                id="servicesGrid"
+                class="services-grid"
+                style="display: none;"
+            >
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="/SCRIPTS/supabase.js"></script>
+
+    <script src="/SCRIPTS/auth.js"></script>
+
+    <script src="/SCRIPTS/my-services.js"></script>
+
+</body>
+
+</html>

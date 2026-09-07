@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skillora — Services</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* =========================================================
+   SERVICES PAGE
+========================================================= */
+
+
+/* =========================================================
+   SERVICES HERO
+========================================================= */
+
+.services-hero {
+    min-height: 620px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.services-hero-content {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 55px 0 65px;
+}
+
+
+/* =========================================================
+   SERVICES HERO TEXT
+========================================================= */
+
+.services-hero-text {
+    position: relative;
+    z-index: 3;
+}
+
+
+.services-hero-text .hero-badge {
+    margin-bottom: 25px;
+}
+
+
+.services-hero-text h1 {
+
+    max-width: 650px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(58px, 6vw, 82px);
+
+    line-height: .98;
+
+    letter-spacing: -4px;
+}
+
+
+.services-hero-text h1 span {
+    color: var(--accent);
+}
+
+
+.services-hero-text p {
+
+    max-width: 610px;
+
+    margin: 28px 0 30px;
+
+    color: var(--text-soft);
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SERVICES SEARCH
+========================================================= */
+
+.services-search-box {
+
+    max-width: 650px;
+
+    display: flex;
+
+    padding: 6px;
+
+    background: #171b20;
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.18);
+}
+
+
+.services-search-box input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 15px 17px;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+
+.services-search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+
+.services-search-box button {
+
+    padding: 0 27px;
+
+    background: var(--accent);
+
+    color: #101300;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.services-search-box button:hover {
+
+    background: var(--accent-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   POPULAR SEARCHES
+========================================================= */
+
+.service-popular {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+}
+
+
+.service-popular button {
+
+    padding: 5px 10px;
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+    transition: .2s;
+}
+
+
+.service-popular button:hover {
+
+    color: var(--accent);
+
+    border-color: var(--accent);
+
+    background: rgba(215,255,79,.04);
+}
+
+
+/* =========================================================
+   SERVICES VISUAL
+========================================================= */
+
+.services-visual {
+
+    min-height: 490px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.services-glow {
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -40px;
+    top: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(215,255,79,.13),
+            transparent 67%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FEATURED SERVICE CARD
+========================================================= */
+
+.featured-service-card {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 390px;
+
+    padding: 25px;
+
+    background: #171b20;
+
+    border: 1px solid var(--border);
+
+    border-radius: 21px;
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.48);
+
+    transform: rotate(2deg);
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease;
+}
+
+
+.featured-service-card:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+
+    box-shadow:
+        0 45px 100px rgba(0,0,0,.58);
+}
+
+
+/* =========================================================
+   FEATURED TOP
+========================================================= */
+
+.featured-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+
+.featured-label {
+
+    color: var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+}
+
+
+.featured-check {
+
+    width: 25px;
+    height: 25px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--accent);
+
+    color: #101300;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FEATURED SELLER
+========================================================= */
+
+.featured-seller {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.featured-avatar {
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    background: #303840;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.featured-seller-info {
+
+    flex: 1;
+}
+
+
+.featured-seller-info strong,
+.featured-seller-info span {
+
+    display: block;
+}
+
+
+.featured-seller-info strong {
+
+    font-size: 12px;
+}
+
+
+.featured-seller-info span {
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+.featured-rating {
+
+    color: var(--accent);
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FEATURED TITLE
+========================================================= */
+
+.featured-service-card h2 {
+
+    margin: 22px 0;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 25px;
+
+    line-height: 1.18;
+
+    letter-spacing: -.8px;
+}
+
+
+/* =========================================================
+   FEATURED PREVIEW
+========================================================= */
+
+.featured-preview {
+
+    height: 170px;
+
+    padding: 14px;
+
+    background: #0d1014;
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+}
+
+
+.preview-window {
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #191e24;
+
+    border-radius: 9px;
+}
+
+
+.window-top {
+
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding-left: 10px;
+
+    background: #20262d;
+}
+
+
+.window-top span {
+
+    width: 6px;
+    height: 6px;
+
+    background: #4a5159;
+
+    border-radius: 50%;
+}
+
+
+.window-content {
+
+    height: calc(100% - 27px);
+
+    position: relative;
+
+    padding: 20px;
+}
+
+
+.code-line {
+
+    width: 65%;
+
+    height: 6px;
+
+    margin-bottom: 9px;
+
+    background: #343b44;
+
+    border-radius: 20px;
+}
+
+
+.code-line.large {
+    width: 82%;
+}
+
+
+.code-line.short {
+    width: 45%;
+}
+
+
+.code-center {
+
+    position: absolute;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    color: var(--accent);
+
+    font-family: monospace;
+
+    font-size: 32px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FEATURED BOTTOM
+========================================================= */
+
+.featured-bottom {
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    margin-top: 21px;
+}
+
+
+.featured-bottom small {
+
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+.featured-bottom strong {
+
+    font-size: 22px;
+}
+
+
+.view-service-btn {
+
+    padding: 10px 13px;
+
+    background: transparent;
+
+    color: var(--accent);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+
+.view-service-btn:hover {
+
+    border-color: var(--accent);
+
+    background: rgba(215,255,79,.06);
+}
+
+
+/* =========================================================
+   FLOATING CARDS
+========================================================= */
+
+.service-floating {
+
+    position: absolute;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 15px;
+
+    background: #1a1f25;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.42);
+
+    transition:
+        transform .35s ease,
+        border-color .25s ease;
+}
+
+
+.service-floating:hover {
+
+    border-color: #424952;
+}
+
+
+/* =========================================================
+   CATEGORY FLOAT
+========================================================= */
+
+.category-float {
+
+    left: -20px;
+
+    top: 55px;
+
+    animation:
+        serviceFloatOne 5s ease-in-out infinite;
+}
+
+
+.float-icon {
+
+    width: 37px;
+    height: 37px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #293038;
+
+    border-radius: 9px;
+
+    color: var(--accent);
+
+    font-family: monospace;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.service-floating strong,
+.service-floating small {
+
+    display: block;
+}
+
+
+.service-floating strong {
+
+    font-size: 11px;
+}
+
+
+.service-floating small {
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   REVIEW FLOAT
+========================================================= */
+
+.review-float {
+
+    right: -10px;
+
+    top: 135px;
+
+    animation:
+        serviceFloatTwo 5.5s ease-in-out infinite;
+}
+
+
+.review-stars {
+
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: rgba(215,255,79,.1);
+
+    color: var(--accent);
+
+    border-radius: 50%;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FREELANCER FLOAT
+========================================================= */
+
+.freelancer-float {
+
+    right: -15px;
+
+    bottom: 55px;
+
+    animation:
+        serviceFloatThree 5s ease-in-out infinite;
+}
+
+
+.freelancer-icon {
+
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #293038;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FLOAT ANIMATIONS
+========================================================= */
+
+@keyframes serviceFloatOne {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+@keyframes serviceFloatTwo {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+
+}
+
+
+@keyframes serviceFloatThree {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+
+/* =========================================================
+   SERVICE CATEGORIES
+========================================================= */
+
+.service-categories {
+
+    background: var(--bg-soft);
+}
+
+
+.service-category-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.service-category-card {
+min-height: 155px;
+    position: relative;
+    padding: 22px;
+    text-align: left;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.service-category-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(215,255,79,.25);
+        }
+
+.service-category-card::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    right: -35px;
+    bottom: -35px;
+    border-radius: 50%;
+    background: rgba(215, 255, 79, .045);
+    transition: .25s ease;
+}
+.service-category-card.active {
+    border-color: rgba(215, 255, 79, .5);
+    box-shadow: 0 0 0 1px rgba(215, 255, 79, .06);
+}
+
+
+
+.service-category-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    background: #20252b;
+
+    color: var(--accent);
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+.service-category-card h3 {
+
+    font-size: 14px;
+}
+
+
+.service-category-card p {
+
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   POPULAR SERVICES
+========================================================= */
+
+.services-list-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.market-service-card {
+
+    overflow: hidden;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+
+.market-service-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: #3a4048;
+}
+
+
+.market-service-image {
+
+    height: 190px;
+
+    display: grid;
+
+    place-items: center;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.service-web {
+
+    background:
+        linear-gradient(
+            135deg,
+            #172027,
+            #303d47
+        );
+}
+
+
+.service-design {
+
+    background:
+        linear-gradient(
+            135deg,
+            #25211c,
+            #514632
+        );
+}
+
+
+.service-seo {
+
+    background:
+        linear-gradient(
+            135deg,
+            #17241e,
+            #304d3c
+        );
+}
+
+
+.service-video {
+
+    background:
+        linear-gradient(
+            135deg,
+            #241c2a,
+            #47344f
+        );
+}
+
+
+.market-service-content {
+
+    padding: 20px;
+}
+
+
+.market-seller {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 15px;
+}
+
+
+.market-avatar {
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #30363e;
+
+    border-radius: 50%;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.market-seller strong,
+.market-seller span {
+
+    display: block;
+}
+
+
+.market-seller strong {
+
+    font-size: 11px;
+}
+
+
+.market-seller span {
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+.market-service-content h3 {
+
+    min-height: 52px;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+.market-rating {
+
+    display: flex;
+
+    gap: 5px;
+
+    margin-top: 13px;
+
+    font-size: 11px;
+}
+
+
+.market-rating span {
+
+    color: var(--accent);
+}
+
+
+.market-rating small {
+
+    color: var(--text-muted);
+}
+
+
+.market-price {
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    margin-top: 17px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.market-price small {
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+.market-price strong {
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   HOW SERVICES WORK
+========================================================= */
+
+.how-services-work {
+
+    background: var(--bg-soft);
+}
+
+
+.process-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.process-card {
+
+    position: relative;
+
+    padding: 30px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+
+.process-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #3a4048;
+}
+
+
+.process-number {
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    color: #454b52;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.process-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 25px;
+
+    background: #20252b;
+
+    color: var(--accent);
+
+    border-radius: 12px;
+
+    font-size: 20px;
+}
+
+
+.process-card h3 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 19px;
+}
+
+
+.process-card p {
+
+    margin-top: 10px;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SERVICES CTA
+========================================================= */
+
+.services-cta {
+
+    padding: 90px 0;
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.services-cta-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+.services-cta h2 {
+
+    max-width: 650px;
+
+    margin-top: 5px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(40px, 5vw, 62px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+
+.services-cta p {
+
+    margin-top: 18px;
+
+    color: var(--text-soft);
+}
+
+
+.services-cta-btn {
+
+    flex-shrink: 0;
+
+    padding: 16px 24px;
+
+    background: var(--accent);
+
+    color: #101300;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+
+.services-cta-btn:hover {
+
+    background: var(--accent-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ACTIVE NAV LINK
+========================================================= */
+
+.nav-links a.active {
+
+    color: var(--white);
+}
+
+
+.nav-links a.active::after {
+
+    content: "";
+
+    display: block;
+
+    width: 100%;
+
+    height: 2px;
+
+    margin-top: 4px;
+
+    background: var(--accent);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   SERVICES SEARCH RESULT STATE
+========================================================= */
+
+.market-service-card.search-hidden {
+
+    display: none;
+}
+
+
+.service-category-card.selected {
+
+    border-color: var(--accent);
+
+    background:
+        rgba(215,255,79,.05);
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light-mode .services-search-box {
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.08);
+}
+
+
+body.light-mode .featured-service-card {
+
+    background: #ffffff;
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.12);
+}
+
+
+body.light-mode .service-floating {
+
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.12);
+}
+
+
+body.light-mode .featured-preview {
+
+    background: #f0f2ef;
+}
+
+
+body.light-mode .preview-window {
+
+    background: #e3e6e2;
+}
+
+
+body.light-mode .window-top {
+
+    background: #d8dcd7;
+}
+
+
+body.light-mode .window-top span {
+
+    background: #aeb4ad;
+}
+
+
+body.light-mode .code-line {
+
+    background: #b8bdb7;
+}
+
+
+body.light-mode .float-icon,
+body.light-mode .freelancer-icon,
+body.light-mode .process-icon,
+body.light-mode .service-category-icon {
+
+    background: #e4e7e3;
+}
+
+
+body.light-mode .featured-avatar,
+body.light-mode .market-avatar {
+
+    background: #e4e7e3;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .services-hero-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding: 65px 0;
+    }
+
+
+    .services-hero-text {
+
+        max-width: 800px;
+    }
+
+
+    .services-visual {
+
+        min-height: 450px;
+
+        margin-top: 10px;
+    }
+
+
+    .services-list-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .services-hero {
+
+        min-height: auto;
+    }
+
+
+    .services-hero-content {
+
+        padding: 65px 0 70px;
+    }
+
+
+    .services-hero-text h1 {
+
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .services-hero-text p {
+
+        font-size: 16px;
+    }
+
+
+    .services-search-box {
+
+        flex-direction: column;
+
+        background: transparent;
+
+        border: none;
+
+        padding: 0;
+
+        gap: 8px;
+
+        box-shadow: none;
+    }
+
+
+    .services-search-box input {
+
+        padding: 15px;
+
+        background: #171b20;
+
+        border: 1px solid var(--border);
+
+        border-radius: 9px;
+    }
+
+
+    .services-search-box button {
+
+        height: 48px;
+    }
+
+
+    .service-popular {
+
+        margin-top: 13px;
+    }
+
+
+    .services-visual {
+
+        min-height: 450px;
+
+        width: 100%;
+    }
+
+
+    .featured-service-card {
+
+        width: min(390px, 90%);
+
+    }
+
+
+    .category-float {
+
+        left: 0;
+
+        top: 40px;
+    }
+
+
+    .review-float {
+
+        right: 0;
+
+        top: 100px;
+    }
+
+
+    .freelancer-float {
+
+        right: 0;
+
+        bottom: 30px;
+    }
+
+
+    .service-category-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .services-list-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .process-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .services-cta-content {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .services-hero-text h1 {
+
+        font-size: 44px;
+
+        letter-spacing: -2.5px;
+    }
+
+
+    .services-visual {
+
+        min-height: 410px;
+    }
+
+
+    .featured-service-card {
+
+        width: 92%;
+
+        padding: 20px;
+    }
+
+
+    .featured-service-card h2 {
+
+        font-size: 21px;
+    }
+
+
+    .featured-preview {
+
+        height: 145px;
+    }
+
+
+    .category-float {
+
+        left: -5px;
+
+        top: 35px;
+
+        transform: scale(.85);
+    }
+
+
+    .review-float {
+
+        right: -5px;
+
+        top: 100px;
+
+        transform: scale(.85);
+    }
+
+
+    .freelancer-float {
+
+        right: -5px;
+
+        bottom: 25px;
+
+        transform: scale(.85);
+    }
+
+
+    .service-category-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .service-category-card {
+
+        padding: 17px;
+    }
+
+
+    .services-cta h2 {
+
+        font-size: 42px;
+
+        letter-spacing: -2px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-floating {
+
+        animation: none;
+    }
+
+    .featured-service-card {
+
+        transition: none;
+    }
+
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Skill<span>ora</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="services.html" class="active">
+                Services
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="articles.html">
+                Articles
+            </a>
+
+        <a href="/HTML/about.html">
+                About
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-btn"
+                id="themeBtn"
+                aria-label="Toggle theme"
+            >
+                <span id="themeIcon">☀</span>
+            </button>
+
+            <button class="login-btn">
+                Log in
+            </button>
+
+            <button class="signup-btn">
+                Join Skillora
+            </button>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     SERVICES HERO
+========================================================= -->
+
+<section class="services-hero">
+
+    <div class="container services-hero-content">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="services-hero-text">
+
+            <div class="hero-badge">
+
+                <span class="badge-dot"></span>
+
+                Discover skilled professionals
+
+            </div>
+
+
+            <h1>
+                Find the right
+                <span>service.</span>
+            </h1>
+
+
+            <p>
+                Hire talented freelancers to help you build,
+                create, design and grow your next project.
+            </p>
+
+
+            <!-- SEARCH -->
+
+            <div class="services-search-box">
+
+                <input
+                    type="text"
+                    id="serviceSearch"
+                    placeholder="What service are you looking for?"
+                    autocomplete="off"
+                >
+
+                <button id="serviceSearchBtn">
+                    Search
+                </button>
+
+            </div>
+
+
+            <!-- POPULAR SEARCHES -->
+
+            <div class="service-popular">
+
+                <span>Popular:</span>
+
+                <button data-search="Web Development">
+                    Web Development
+                </button>
+
+                <button data-search="Logo Design">
+                    Logo Design
+                </button>
+
+                <button data-search="SEO">
+                    SEO
+                </button>
+
+                <button data-search="Video Editing">
+                    Video Editing
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RIGHT SIDE VISUAL
+        ================================================== -->
+
+        <div class="services-visual">
+
+
+            <!-- BACKGROUND GLOW -->
+
+            <div class="services-glow"></div>
+
+
+            <!-- CATEGORY FLOATING CARD -->
+
+            <div class="service-floating category-float">
+
+                <div class="float-icon">
+                    &lt;/&gt;
+                </div>
+
+                <div>
+                    <strong>Web Development</strong>
+                    <small>1,240 services</small>
+                </div>
+
+            </div>
+
+
+            <!-- MAIN SERVICE CARD -->
+
+            <div class="featured-service-card">
+
+
+                <div class="featured-top">
+
+                    <span class="featured-label">
+                        FEATURED SERVICE
+                    </span>
+
+                    <span class="featured-check">
+                        ✓
+                    </span>
+
+                </div>
+
+
+                <!-- SELLER -->
+
+                <div class="featured-seller">
+
+                    <div class="featured-avatar">
+                        MA
+                    </div>
+
+                    <div class="featured-seller-info">
+
+                        <strong>
+                            Muhammad Ali
+                        </strong>
+
+                        <span>
+                            Top Rated Web Developer
+                        </span>
+
+                    </div>
+
+                    <div class="featured-rating">
+                        ★ 4.9
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICE TITLE -->
+
+                <h2>
+                    I will build a modern
+                    responsive website
+                    for your business
+                </h2>
+
+
+                <!-- PREVIEW -->
+
+                <div class="featured-preview">
+
+                    <div class="preview-window">
+
+                        <div class="window-top">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+
+                        <div class="window-content">
+
+                            <div class="code-line large"></div>
+                            <div class="code-line"></div>
+                            <div class="code-line short"></div>
+
+                            <div class="code-center">
+                                &lt;/&gt;
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICE INFO -->
+
+                <div class="featured-bottom">
+
+                    <div>
+
+                        <small>
+                            Starting at
+                        </small>
+
+                        <strong>
+                            $80
+                        </strong>
+
+                    </div>
+
+                    <button class="view-service-btn">
+                        View service →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- REVIEW FLOATING CARD -->
+
+            <div class="service-floating review-float">
+
+                <div class="review-stars">
+                    ★
+                </div>
+
+                <div>
+
+                    <strong>
+                        4.9 / 5
+                    </strong>
+
+                    <small>
+                        From 126 reviews
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- FREELANCERS FLOATING CARD -->
+
+            <div class="service-floating freelancer-float">
+
+                <div class="freelancer-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <strong>
+                        2,400+
+                    </strong>
+
+                    <small>
+                        Active freelancers
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICE CATEGORIES
+========================================================= -->
+
+<section class="service-categories section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    BROWSE SERVICES
+                </span>
+
+                <h2>
+                    Explore by category
+                </h2>
+
+            </div>
+
+            <a href="#" class="view-link">
+                View all →
+            </a>
+
+        </div>
+
+
+        <div class="service-category-grid">
+
+
+            <button
+                class="service-category-card"
+                data-category="Programming"
+            >
+
+                <div class="service-category-icon">
+                    &lt;/&gt;
+                </div>
+
+                <div>
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <p>
+                        1,240 services
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="service-category-card"
+                data-category="Design"
+            >
+
+                <div class="service-category-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h3>
+                        Design
+                    </h3>
+
+                    <p>
+                        980 services
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="service-category-card"
+                data-category="Marketing"
+            >
+
+                <div class="service-category-icon">
+                    ◉
+                </div>
+
+                <div>
+
+                    <h3>
+                        Digital Marketing
+                    </h3>
+
+                    <p>
+                        760 services
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="service-category-card"
+                data-category="Writing"
+            >
+
+                <div class="service-category-icon">
+                    Aa
+                </div>
+
+                <div>
+
+                    <h3>
+                        Writing
+                    </h3>
+
+                    <p>
+                        620 services
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="service-category-card"
+                data-category="Video"
+            >
+
+                <div class="service-category-icon">
+                    ▶
+                </div>
+
+                <div>
+
+                    <h3>
+                        Video & Animation
+                    </h3>
+
+                    <p>
+                        540 services
+                    </p>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="service-category-card"
+                data-category="Music"
+            >
+
+                <div class="service-category-icon">
+                    ♫
+                </div>
+
+                <div>
+
+                    <h3>
+                        Music & Audio
+                    </h3>
+
+                    <p>
+                        380 services
+                    </p>
+
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     POPULAR SERVICES
+========================================================= -->
+
+<section class="popular-services section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    TOP SERVICES
+                </span>
+
+                <h2>
+                    Popular right now
+                </h2>
+
+            </div>
+
+            <a href="#" class="view-link">
+                Explore all →
+            </a>
+
+        </div>
+
+
+        <div class="services-list-grid">
+
+
+            <!-- SERVICE 1 -->
+
+            <article class="market-service-card">
+
+                <div class="market-service-image service-web">
+                    WEB
+                </div>
+
+                <div class="market-service-content">
+
+                    <div class="market-seller">
+
+                        <div class="market-avatar">
+                            MA
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Muhammad Ali
+                            </strong>
+
+                            <span>
+                                Web Developer
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        I will create a professional
+                        responsive website
+                    </h3>
+
+
+                    <div class="market-rating">
+
+                        <span>
+                            ★ 4.9
+                        </span>
+
+                        <small>
+                            (126)
+                        </small>
+
+                    </div>
+
+
+                    <div class="market-price">
+
+                        <small>
+                            Starting at
+                        </small>
+
+                        <strong>
+                            $80
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- SERVICE 2 -->
+
+            <article class="market-service-card">
+
+                <div class="market-service-image service-design">
+                    BRAND
+                </div>
+
+                <div class="market-service-content">
+
+                    <div class="market-seller">
+
+                        <div class="market-avatar">
+                            SA
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Sarah Ahmed
+                            </strong>
+
+                            <span>
+                                Graphic Designer
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        I will design a unique
+                        modern logo for your brand
+                    </h3>
+
+
+                    <div class="market-rating">
+
+                        <span>
+                            ★ 5.0
+                        </span>
+
+                        <small>
+                            (94)
+                        </small>
+
+                    </div>
+
+
+                    <div class="market-price">
+
+                        <small>
+                            Starting at
+                        </small>
+
+                        <strong>
+                            $35
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- SERVICE 3 -->
+
+            <article class="market-service-card">
+
+                <div class="market-service-image service-seo">
+                    SEO
+                </div>
+
+                <div class="market-service-content">
+
+                    <div class="market-seller">
+
+                        <div class="market-avatar">
+                            HR
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Hassan Raza
+                            </strong>
+
+                            <span>
+                                SEO Specialist
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        I will optimize your website
+                        for Google SEO
+                    </h3>
+
+
+                    <div class="market-rating">
+
+                        <span>
+                            ★ 4.8
+                        </span>
+
+                        <small>
+                            (72)
+                        </small>
+
+                    </div>
+
+
+                    <div class="market-price">
+
+                        <small>
+                            Starting at
+                        </small>
+
+                        <strong>
+                            $45
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- SERVICE 4 -->
+
+            <article class="market-service-card">
+
+                <div class="market-service-image service-video">
+                    VIDEO
+                </div>
+
+                <div class="market-service-content">
+
+                    <div class="market-seller">
+
+                        <div class="market-avatar">
+                            ZN
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Zainab Noor
+                            </strong>
+
+                            <span>
+                                Video Editor
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        I will edit professional
+                        social media videos
+                    </h3>
+
+
+                    <div class="market-rating">
+
+                        <span>
+                            ★ 4.9
+                        </span>
+
+                        <small>
+                            (51)
+                        </small>
+
+                    </div>
+
+
+                    <div class="market-price">
+
+                        <small>
+                            Starting at
+                        </small>
+
+                        <strong>
+                            $25
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section class="how-services-work section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    SIMPLE PROCESS
+                </span>
+
+                <h2>
+                    Get things done.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <span class="process-number">
+                    01
+                </span>
+
+                <div class="process-icon">
+                    ⌕
+                </div>
+
+                <h3>
+                    Find a service
+                </h3>
+
+                <p>
+                    Search thousands of services
+                    from skilled professionals.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span class="process-number">
+                    02
+                </span>
+
+                <div class="process-icon">
+                    ◉
+                </div>
+
+                <h3>
+                    Choose a freelancer
+                </h3>
+
+                <p>
+                    Compare profiles, ratings,
+                    reviews and prices.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span class="process-number">
+                    03
+                </span>
+
+                <div class="process-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Get your project done
+                </h3>
+
+                <p>
+                    Work with your freelancer
+                    and bring your idea to life.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="services-cta">
+
+    <div class="container services-cta-content">
+
+        <div>
+
+            <span class="eyebrow">
+                READY TO START?
+            </span>
+
+            <h2>
+                Your next project
+                starts here.
+            </h2>
+
+            <p>
+                Find the right talent and turn your
+                idea into something real.
+            </p>
+
+        </div>
+
+
+        <button class="services-cta-btn">
+            Browse services →
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+                Skill<span>ora</span>
+            </a>
+
+            <p>
+                A modern marketplace connecting
+                people, skills and opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Marketplace
+            </h4>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="/HTML/about.html">
+                About
+            </a>
+
+            <a href="#">
+                Featured
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Resources
+            </h4>
+
+            <a href="articles.html">
+                Articles
+            </a>
+
+            <a href="#">
+                Help Center
+            </a>
+
+            <a href="#">
+                Community
+            </a>
+
+            <a href="#">
+                Become a Seller
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Company
+            </h4>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+            <a href="#">
+                Privacy
+            </a>
+
+            <a href="#">
+                Terms
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+        <span>
+            © 2026 Skillora. All rights reserved.
+        </span>
+
+        <span style="color: tan;">
+            A Project of Mohid & Co.
+        </span>
+
+        <span>
+            Built for creators & freelancers.
+        </span>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="/SCRIPTS/supabase.js"></script>
+
+<script src="/SCRIPTS/auth.js"></script>
+<script src="/SCRIPTS/services.js"></script>
+
+</body>
+</html>
